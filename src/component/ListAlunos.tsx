@@ -25,7 +25,6 @@ const ListAlunos = () => {
       <li>aluno: {aluno.nome}</li>
       <li id="list-between">teacher: {aluno.professor.nome}</li>
       <li id='list-email'>disciplina: {aluno.professor.disciplina}</li>
-      <li>data-matricula: {aluno.createdAt ? new Date(aluno.createdAt).toLocaleDateString("pt-BR") : "Data indisponivel!"}</li>
     </ol>
   ));
 
