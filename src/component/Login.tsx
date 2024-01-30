@@ -1,0 +1,55 @@
+import { useStore } from "../store/state";
+import { useState } from 'react';
+
+
+const Login = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const logar = useStore((state) => state.insertLogar)
+
+  const logout = useStore((state) => state.resetLogar)
+  
+
+  const handleSubmit = () => {
+    if (email === "secret@example.com") {
+      logar();
+    } else {
+      logout();
+    }
+  };
+
+  return (
+    <div className="w3-container w3-margin">
+      <form className="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" onSubmit={handleSubmit}>
+        <h2 className="w3-center">Login</h2>
+        <label className="w3-text-blue"><b>Nome</b></label>
+        <input
+          className="w3-input w3-border w3-round-large"
+          type="text"
+          placeholder="Digite seu nome"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+        <label className="w3-text-blue"><b>Email</b></label>
+        <input
+          className="w3-input w3-border w3-round-large"
+          type="email"
+          placeholder="Digite seu email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <button className="w3-button w3-block w3-blue w3-round-large w3-section w3-padding"
+         type="button"
+         onClick={handleSubmit}
+         >
+          Entrar
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default Login;

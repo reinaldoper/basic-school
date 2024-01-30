@@ -1,0 +1,171 @@
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+@import url("./App.css");
+
+
+.logo {
+  background-color: rgba(0, 0, 0, .2);
+  height: 160px;
+  width: 160px;
+  margin: auto;
+  border-radius: 50%;
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+#w3-ul{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 10px;
+  font-size: large;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.students{
+  width: 55%;
+}
+
+#list-between, #list-email{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.render-teacher{
+  margin: auto;
+  margin-top: 25px;
+}
+
+.list-professor{
+  display: flex;
+}
+
+li{
+  list-style: none !important;
+}
+
+.input-card{
+  width: 40%;
+  max-height: 10%;
+  margin-bottom: 10px;
+}
+
+.w3-black{
+ margin-bottom: 10px;
+}
+
+.about-we{
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  padding: 10px;
+}
+
+.about-we span{
+  margin: auto;
+}
+
+.logo img {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: auto;
+  color: transparent;
+  background: -webkit-linear-gradient(#33A8DB, #ebedee);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.w3-white{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 10px;
+}
+
+.w3-button:hover{
+  border-top: 1px solid #343434;
+  border-bottom: 1px solid #343434;
+}
+
+.active{
+  border-top: 1px solid #343434;
+  border-bottom: 1px solid #343434;
+  background-color: #b3aeae;
+}
+
+#transform-world {
+  height: 40%;
+  background-size: cover;
+  background-image: url("../assets/question.jpg");
+  background-attachment: fixed;
+  border-top: 1px solid #33A8DB80;
+  border-bottom: 1px solid #33A8DB80;
+  padding: 200px;
+}
+
+#transform-world p {
+  display: flex;
+  font-weight: 900;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  max-width: 250px;
+  text-shadow: 3px 2px #0ba4e6;
+}
+
+.section-main{
+  display: flex;
+}
+
+.section-main h2{
+  display: flex;
+  border-radius: 8px;
+  background-image: url('../assets/about-room.jpg');
+  opacity: 0.6;
+  background-size: cover;
+  padding: 40px;
+  margin: auto;
+  font-weight: 900;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  width: 35%;
+  text-shadow: 3px 2px #e60b16;
+}
+
+.footer-div {
+  padding: 60px 0;
+  text-align: center;
+  background-image: linear-gradient(rgba(81, 178, 219, 0), rgba(50, 168, 219, .2));
+  border-top: 1px solid #33A8DB80;
+}
+
+.footer-a {
+  color: #33A8DB;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#professional-challenges {
+  margin: auto;
+  text-align: center;
+  width: 800px;
+}
+
+#professional-challenges img {
+  border-radius: 8px;
+  margin: 32px 0;
+  width: 30%;
+}
+
+
+
+
+
