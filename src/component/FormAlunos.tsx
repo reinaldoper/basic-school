@@ -11,8 +11,9 @@ const FormAlunos = () => {
   const [teacherId, setTeacherId] = useState<string>('')
   const [error, setError] = useState<boolean>(false)
 
-  const addAlunos = useStore((state) => state.setAlunos)
+  const setAlunos = useStore((state) => state.setAlunos)
   const logado = useStore((state) => state.logar)
+  const listTeacher = useStore((state) => state.disciplina)
 
 
   const handleClick = async () => {
@@ -30,28 +31,30 @@ const FormAlunos = () => {
         professorId: idProfessor
       }),
     }
-  
+
     if (verifyVariables()) {
-      const result = await fetchAluno(headers)
-      if (result.message.length > 0) {
-        const headersGet: RequestInit = {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          }
-        }
-        const listAluno = await fetchAluno(headersGet)
-        addAlunos(listAluno.message);
-      }
+      await fetchAluno(headers)
+      enviaStudent()
       reset();
-      setError(false); 
+      setError(false);
     } else {
       reset();
       setError(true);
     }
   };
-  
-  
+
+
+
+  const enviaStudent = async () => {
+    const headersGet: RequestInit = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }
+    const listStudents = await fetchAluno(headersGet)
+    setAlunos(listStudents.message)
+  };
 
 
 
@@ -83,7 +86,7 @@ const FormAlunos = () => {
   return (
     <>
       {logado ? <div className="w3-container input-card">
-      {error && alert()}
+        {error && alert()}
         <h2>Cadastrar aluno:</h2>
 
         <div className="w3-card-4">
@@ -102,14 +105,21 @@ const FormAlunos = () => {
               <input className="w3-input" type="text" value={idade} onChange={e => setIdade(e.target.value)} />
               <label>Idade</label></p>
             <p>
-              <input className="w3-input" type="text" value={teacherId} onChange={e => setTeacherId(e.target.value)} />
+              <select value={teacherId} onChange={e => setTeacherId(e.target.value)}>
+                {listTeacher.map((teacher) => (
+                  <option key={teacher.id} value={teacher.id}>
+                    {teacher.nome}
+                  </option>
+                ))}
+              </select>
+              <br />
               <label>professorId</label></p>
             <p>
               <button type="button" onClick={handleClick} className="w3-btn w3-black">Salvar</button>
             </p>
           </form>
         </div>
-      </div>: <div className="w3-container input-card">
+      </div> : <div className="w3-container input-card">
         <h2 className='w3-cursive'>Entre com as credenciais corretas para cadastrar alunos.</h2>
       </div>}
     </>

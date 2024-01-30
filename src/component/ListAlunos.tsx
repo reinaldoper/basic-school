@@ -1,10 +1,14 @@
 import { fetchAluno } from "../services/fetchApi"
-import { useEffect, useState } from "react"
-import { Aluno } from "../Types/TTypes";
+import { useEffect } from "react"
+
+import { useStore } from "../store/state";
 
 const ListAlunos = () => {
-  const [alunos, setAlunos] = useState<Aluno[]>([]);
+  
 
+  const list = useStore((state) => state.setAlunos)
+
+  const listAluno = useStore((state) => state.aluno)
 
   useEffect(() => {
     const getAlunos = async () => {
@@ -15,12 +19,14 @@ const ListAlunos = () => {
         }
       }
       const listStudents = await fetchAluno(headersGet)
-      setAlunos(listStudents.message)
+      
+      list(listStudents.message)
     }
     getAlunos();
-  }, []);
+  }, [list]);
 
-  const listAlunos = alunos.map(aluno => (
+
+  const listAlunos = listAluno.map(aluno => (
     <ol key={aluno.id} id="w3-ul" className="w3-container w3-animate-top">
       <li>student: {aluno.nome}</li>
       <li id="list-between">teacher: {aluno.professor.nome}</li>

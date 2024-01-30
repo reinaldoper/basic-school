@@ -2,19 +2,30 @@ import '../styles/home.css';
 import school from '../assets/escola-2.webp'
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { fetchDiretor } from '../services/fetchApi';
+import { fetchDiretor, fetchProfessor } from '../services/fetchApi';
 import { useStore } from "../store/state";
+
 
 const Home = () => {
   const [diretor, setDiretor] = useState<string>('');
+ 
+  const teacher = useStore((state) => state.setDisciplina)
 
   useEffect(() => {
     const diretor = async () => {
       const result = await fetchDiretor();
       setDiretor(result.message[0].nome);
+      const headers: RequestInit = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+    }
+      const list = await fetchProfessor(headers);
+      teacher(list.message)
     };
     diretor();
-  }, []);
+  }, [teacher]);
 
   const add = useStore((state) => state.setAdd);
   add(diretor);

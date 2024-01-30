@@ -26,28 +26,32 @@ const FormProfessores = () => {
         disciplina,
       }),
     }
-  
+
     if (verifyVariables()) {
-      const result = await fetchProfessor(headers)
-      if (result.message.length > 0) {
-        const headersGet: RequestInit = {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          }
-        }
-        const listTeacher = await fetchProfessor(headersGet)
-        teacher(listTeacher.message);
-      }
+      await fetchProfessor(headers)
+      enviaTeacher();
       reset();
-      setError(false); 
+      setError(false);
     } else {
       reset();
       setError(true);
     }
   };
+
   
-  
+
+  const enviaTeacher = async () => {
+    const headersGet: RequestInit = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }
+    const listTeacher = await fetchProfessor(headersGet)
+    teacher(listTeacher.message);
+  };
+
+
 
 
 
@@ -102,7 +106,7 @@ const FormProfessores = () => {
             </p>
           </form>
         </div>
-      </div>: <div className="w3-container input-card">
+      </div> : <div className="w3-container input-card">
         <h2 className='w3-cursive'>Entre com as credenciais corretas para cadastrar professores.</h2>
       </div>}
     </>
