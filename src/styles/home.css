@@ -22,10 +22,6 @@
   border: 1px solid #ccc;
 }
 
-.students{
-  width: 55%;
-}
-
 #list-between, #list-email{
   margin-left: 10px;
   margin-right: 10px;
@@ -38,6 +34,7 @@
 
 .list-professor{
   display: flex;
+  flex-wrap: wrap;
 }
 
 li{
@@ -103,41 +100,54 @@ h1 {
 }
 
 #transform-world {
-  height: 40%;
+  height: 30%;
   background-size: cover;
   background-image: url("../assets/question.jpg");
   background-attachment: fixed;
   border-top: 1px solid #33A8DB80;
   border-bottom: 1px solid #33A8DB80;
-  padding: 200px;
+  padding: 10%;
 }
 
-#transform-world p {
+/* #transform-world p {
   display: flex;
   font-weight: 900;
   font-size: 2.5rem;
   text-transform: uppercase;
   max-width: 250px;
   text-shadow: 3px 2px #0ba4e6;
-}
+} */
 
 .section-main{
   display: flex;
+  flex-wrap: wrap;
 }
 
 .section-main h2{
   display: flex;
+  flex-wrap: wrap;
   border-radius: 8px;
   background-image: url('../assets/about-room.jpg');
   opacity: 0.6;
   background-size: cover;
-  padding: 40px;
+  padding: 10%;
   margin: auto;
-  font-weight: 900;
-  font-size: 2.2rem;
-  text-transform: uppercase;
+  /* font-weight: 900;
+  font-size: 2.2rem; */
+  /* text-transform: uppercase; */
   width: 35%;
+  height: 35%;
   text-shadow: 3px 2px #e60b16;
+}
+
+
+.section-main p {
+  display: flex;
+  font-weight: 900;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  width: 250px;
+  text-shadow: 3px 2px #0ba4e6;
 }
 
 .footer-div {
@@ -156,7 +166,7 @@ h1 {
 #professional-challenges {
   margin: auto;
   text-align: center;
-  width: 800px;
+  width: 80%;
 }
 
 #professional-challenges img {

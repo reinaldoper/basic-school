@@ -32,7 +32,7 @@ const ListAlunos = () => {
 
   return (
     <>
-      <div className="render-teacher students">
+      <div className="render-teacher">
         <h2 className="w3-cursive">Lista de alunos:</h2>
         {listAlunos.length > 0 ? <>{listAlunos}</> : <div>Carregando...</div>}
       </div>

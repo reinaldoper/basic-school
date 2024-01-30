@@ -62,7 +62,7 @@ const Home = () => {
 
 
   return (
-    <div>
+    <>
       <div className='w3-container w3-teal header'>
         <div className='logo'>
           <img src={school} title='A escola do futuro' alt="Image school" />
@@ -77,7 +77,7 @@ const Home = () => {
         <button type="button" name='/about' className={`w3-button ${local === '/about' ? 'active' : null}`} onClick={handleClick}>Sobre nós</button>
         <button type="button" name='/login' className={`w3-button ${local === '/login' ? 'active' : null}`} onClick={handleClick}>Login</button>
       </div>
-    </div>
+    </>
   )
 }
 
