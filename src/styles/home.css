@@ -12,13 +12,21 @@
   padding: 16px;
 }
 
+.w3-cursive{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
 #w3-ul{
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: first baseline;
+  border-radius: 4px;
   text-align: center;
   margin-top: 10px;
-  font-size: large;
-  padding: 20px;
+  font-size: medium;
+  padding: 10px;
   border: 1px solid #ccc;
 }
 
@@ -28,6 +36,9 @@
 }
 
 .render-teacher{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   margin: auto;
   margin-top: 25px;
 }
@@ -35,6 +46,12 @@
 .list-professor{
   display: flex;
   flex-wrap: wrap;
+}
+
+.logout{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 li{
@@ -178,7 +195,7 @@ h1 {
 
 .login-center{
   margin: auto;
-  width: 40%;
+  max-width: 440px;
 }
 
 

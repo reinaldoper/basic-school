@@ -80,6 +80,16 @@ const FormProfessores = () => {
   };
 
 
+  const alertLogout = () => {
+    return (
+      <div className="w3-panel w3-yellow">
+        <h3>Warning!</h3>
+        <p>Entre com as credenciais corretas para cadastrar professores.</p>
+      </div>
+    )
+  }
+
+
   return (
     <>
       {logado ? <div className="w3-container input-card">
@@ -106,8 +116,8 @@ const FormProfessores = () => {
             </p>
           </form>
         </div>
-      </div> : <div className="w3-container input-card">
-        <h2 className='w3-cursive'>Entre com as credenciais corretas para cadastrar professores.</h2>
+      </div> : <div className="w3-container input-card w3-cursive">
+        <h2 className='w3-cursive'>{alertLogout()}</h2>
       </div>}
     </>
   )
