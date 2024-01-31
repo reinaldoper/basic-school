@@ -2,7 +2,7 @@ import '../styles/home.css';
 import school from '../assets/escola-2.webp'
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { fetchDiretor, fetchProfessor } from '../services/fetchApi';
+import { fetchDiretor, fetchProfessor, fetchAluno } from '../services/fetchApi';
 import { useStore } from "../store/state";
 
 
@@ -15,10 +15,14 @@ const Home = () => {
 
   const logout = useStore((state) => state.resetLogar)
 
+  const listAlunos = useStore((state) => state.setAlunos)
+
   const logar = useStore((state) => state.logar)
 
+  const logUser = useStore((state) => state.logUser)
+
   useEffect(() => {
-    const diretor = async () => {
+    const all = async () => {
       const result = await fetchDiretor();
       setDiretor(result.message[0].nome);
       const headers: RequestInit = {
@@ -27,11 +31,29 @@ const Home = () => {
           'Content-Type': 'application/json',
         }
       }
+
       const list = await fetchProfessor(headers);
       teacher(list.message)
     };
-    diretor();
+    all();
   }, [teacher]);
+
+
+  useEffect(() => {
+    const student = async () => {
+      const headers: RequestInit = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
+
+      const listStudents = await fetchAluno(headers)
+      listAlunos(listStudents.message)
+    };
+    student();
+
+  }, [listAlunos])
 
   const add = useStore((state) => state.setAddUser);
   add(diretor);
@@ -104,7 +126,7 @@ const Home = () => {
             : null}
           <button type="button" name='/login' className={`w3-button ${local === '/login' ? 'active' : null}`} onClick={handleClick}>Login</button>
           <button type="button" className='w3-button' onClick={handleLogar}>Logout</button>
-          <li className="w3-large"><i className="fa fa-user"></i> {admin.length && logar ? admin[0].nome : 'user-login'}</li>
+          <li className="w3-large"><i className="fa fa-user"></i> {admin.length && logar ? admin[0].nome : logUser.length && !logar ? logUser[0].nome : 'user-login'}</li>
         </div>
       </div>
 

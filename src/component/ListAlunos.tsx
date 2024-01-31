@@ -1,29 +1,8 @@
-import { fetchAluno } from "../services/fetchApi"
-import { useEffect } from "react"
-
 import { useStore } from "../store/state";
 
 const ListAlunos = () => {
-  
-
-  const list = useStore((state) => state.setAlunos)
 
   const listAluno = useStore((state) => state.aluno)
-
-  useEffect(() => {
-    const getAlunos = async () => {
-      const headersGet: RequestInit = {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      }
-      const listStudents = await fetchAluno(headersGet)
-      
-      list(listStudents.message)
-    }
-    getAlunos();
-  }, [list]);
 
 
   const listAlunos = listAluno.map(aluno => (

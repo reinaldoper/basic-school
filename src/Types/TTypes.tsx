@@ -12,11 +12,17 @@ export interface Admin {
   role: string;
 }
 
+export interface User {
+  nome: string;
+  role: string;
+}
+
 
 export interface StoreState {
   logar: boolean;
   user: string;
   admin: Admin[];
+  logUser: Aluno[];
   disciplina: Disciplina[];
   aluno: Aluno[];
 }
@@ -28,6 +34,7 @@ export interface StoreActions {
   setDisciplina: (payload: Disciplina[]) => void;
   setAlunos: (payload:Aluno[]) => void;
   setAdmin: (payload:Admin[]) => void;
+  setLogUser: (payload: Aluno[]) => void;
 }
 
 export interface Aluno {
