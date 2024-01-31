@@ -13,6 +13,10 @@ const Home = () => {
 
   const admin = useStore((state) => state.admin)
 
+  const logout = useStore((state) => state.resetLogar)
+
+  const logar = useStore((state) => state.logar)
+
   useEffect(() => {
     const diretor = async () => {
       const result = await fetchDiretor();
@@ -72,6 +76,10 @@ const Home = () => {
     navigate(url);
   };
 
+  const handleLogar = () => {
+    logout();
+  };
+
 
 
   return (
@@ -90,7 +98,8 @@ const Home = () => {
           <button type="button" name='/manager' className={`w3-button ${local === '/manager' ? 'active' : null}`} onClick={handleClick}>Diretor</button>
           <button type="button" name='/about' className={`w3-button ${local === '/about' ? 'active' : null}`} onClick={handleClick}>Sobre nós</button>
           <button type="button" name='/login' className={`w3-button ${local === '/login' ? 'active' : null}`} onClick={handleClick}>Login</button>
-          <li className="w3-large"><i className="fa fa-user"></i> {admin.length ? admin[0].nome : 'user-login'}</li>
+          <button type="button" className='w3-button' onClick={handleLogar}>Logout</button>
+          <li className="w3-large"><i className="fa fa-user"></i> {admin.length && logar ? admin[0].nome : 'user-login'}</li>
         </div>
       </div>
 
