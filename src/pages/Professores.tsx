@@ -7,11 +7,14 @@ import { useStore } from "../store/state";
 
 const Professores = () => {
 
+  const admin = useStore((state) => state.admin)
+
   const logout = useStore((state) => state.logar)
+
   return (
     <>
       <Home />
-      <section className={`${logout ? 'list-professor': 'logout'}`}>
+      <section className={`${logout && (admin.length && admin[0].role === 'ADMIN') ? 'list-professor': 'logout'}`}>
         <FormProfessores />
         <ListProfessores />
       </section>

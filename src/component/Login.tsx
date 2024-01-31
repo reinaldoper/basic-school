@@ -1,25 +1,56 @@
 import { useStore } from "../store/state";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [error, setError] = useState<boolean>(false);
+
   const logar = useStore((state) => state.insertLogar)
 
   const logout = useStore((state) => state.resetLogar)
 
+  const techer = useStore((state) => state.disciplina)
+
+  const admin = useStore((state) => state.setAdmin)
+
+  const navigate = useNavigate();
+
+  const alert = () => {
+    return (
+      <div className="w3-panel w3-yellow">
+        <h3>Warning!</h3>
+        <p>Campos inválidos.</p>
+      </div>
+    )
+  }
+
 
   const handleSubmit = () => {
-    if (email === "secret@example.com") {
+    
+    const ability = techer.filter(e => e.email === email)
+    
+    
+    if (ability[0]?.role === "ADMIN" && ability[0].nome === name) {
+      setError(false);
       logar();
-    } else {
+      admin(ability);
+      navigate('/')
+    } else if (ability[0]?.role === "USER" && ability[0].nome === name) {
+      setError(false);
+      admin(ability);
       logout();
+      navigate('/')
+    } else {
+      setError(true);
     }
   };
 
   return (
     <div className="login-center">
+      {error && alert()}
       <div className="w3-container w3-margin">
         <form className="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" onSubmit={handleSubmit}>
           <h2 className="w3-center">Login</h2>

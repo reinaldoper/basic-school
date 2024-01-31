@@ -2,7 +2,7 @@ import { useStore } from "../store/state";
 
 const Salles = () => {
 
-  const diretor = useStore((state) => state.add)
+  const diretor = useStore((state) => state.user)
   return (
     <>
 

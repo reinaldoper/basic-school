@@ -9,11 +9,13 @@ const Alunos = () => {
 
   const logout = useStore((state) => state.logar)
 
+  const admin = useStore((state) => state.admin)
+
 
   return (
     <>
       <Home />
-      <section className={`${logout ? 'list-professor': 'logout'}`}>
+      <section className={`${logout && (admin.length && admin[0].role === 'ADMIN') ? 'list-professor': 'logout'}`}>
         <FormAlunos />
         <ListAlunos />
       </section>

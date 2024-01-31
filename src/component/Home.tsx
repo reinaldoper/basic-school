@@ -8,8 +8,10 @@ import { useStore } from "../store/state";
 
 const Home = () => {
   const [diretor, setDiretor] = useState<string>('');
- 
+
   const teacher = useStore((state) => state.setDisciplina)
+
+  const admin = useStore((state) => state.admin)
 
   useEffect(() => {
     const diretor = async () => {
@@ -20,14 +22,14 @@ const Home = () => {
         headers: {
           'Content-Type': 'application/json',
         }
-    }
+      }
       const list = await fetchProfessor(headers);
       teacher(list.message)
     };
     diretor();
   }, [teacher]);
 
-  const add = useStore((state) => state.setAdd);
+  const add = useStore((state) => state.setAddUser);
   add(diretor);
 
 
@@ -80,14 +82,18 @@ const Home = () => {
         </div>
         <h1>Basic school</h1>
       </div>
-      <div className='w3-container w3-white'>
-        <button type="button" name='/' className={`w3-button ${local === '/' ? 'active' : null}`} onClick={handleClick}>Inicio</button>
-        <button type="button" name='/students' className={`w3-button ${local === '/students' ? 'active' : null}`} onClick={handleClick}>Listar alunos</button>
-        <button type="button" name='/teacher' className={`w3-button ${local === '/teacher' ? 'active' : null}`} onClick={handleClick}>Professores</button>
-        <button type="button" name='/manager' className={`w3-button ${local === '/manager' ? 'active' : null}`} onClick={handleClick}>Diretor</button>
-        <button type="button" name='/about' className={`w3-button ${local === '/about' ? 'active' : null}`} onClick={handleClick}>Sobre nós</button>
-        <button type="button" name='/login' className={`w3-button ${local === '/login' ? 'active' : null}`} onClick={handleClick}>Login</button>
+      <div className='container-home'>
+        <div className='w3-container w3-white'>
+          <button type="button" name='/' className={`w3-button w3-large fa fa-home ${local === '/' ? 'active' : null}`} onClick={handleClick}>Inicio</button>
+          <button type="button" name='/students' className={`w3-button ${local === '/students' ? 'active' : null}`} onClick={handleClick}>Listar alunos</button>
+          <button type="button" name='/teacher' className={`w3-button ${local === '/teacher' ? 'active' : null}`} onClick={handleClick}>Professores</button>
+          <button type="button" name='/manager' className={`w3-button ${local === '/manager' ? 'active' : null}`} onClick={handleClick}>Diretor</button>
+          <button type="button" name='/about' className={`w3-button ${local === '/about' ? 'active' : null}`} onClick={handleClick}>Sobre nós</button>
+          <button type="button" name='/login' className={`w3-button ${local === '/login' ? 'active' : null}`} onClick={handleClick}>Login</button>
+          <li className="w3-large"><i className="fa fa-user"></i> {admin.length ? admin[0].nome : 'user-login'}</li>
+        </div>
       </div>
+
     </>
   )
 }
