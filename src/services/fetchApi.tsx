@@ -22,8 +22,8 @@ export const fetchAluno = async (options: RequestInit) => {
   return data;
 }
 
-export const fetchNotas = async () => {
-  const response = await fetch(URL_NOTAS);
+export const fetchNotas = async (options: RequestInit) => {
+  const response = await fetch(URL_NOTAS, options);
   const data = await response.json();
   return data;
 }

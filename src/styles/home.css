@@ -103,6 +103,7 @@ h1 {
 .w3-white{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin: auto;
   padding: 10px;
 }

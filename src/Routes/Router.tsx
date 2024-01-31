@@ -5,6 +5,7 @@ import Professores from "../pages/Professores";
 import Diretor from "../pages/Diretor";
 import About from "../pages/About";
 import LogiIn from "../pages/LogiIn";
+import Notes from "../pages/Notes";
 
 
 const Router = () => {
@@ -17,6 +18,7 @@ const Router = () => {
         <Route path="/teacher" element={<Professores />} />
         <Route path="/manager" element={<Diretor />} />
         <Route path="/about" element={<About />} />
+        <Route path="/notes" element={<Notes />} />
       </Routes>
     </>
   )
