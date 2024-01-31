@@ -2,7 +2,6 @@ import Home from "../component/Home"
 import '../styles/home.css';
 import FormProfessores from "../component/FormProfessores";
 import ListProfessores from "../component/ListProfessores";
-import Footer from "../component/Footer";
 import { useStore } from "../store/state";
 
 
@@ -17,7 +16,6 @@ const Professores = () => {
         <ListProfessores />
       </section>
       <hr />
-      <Footer />
     </>
   )
 }
