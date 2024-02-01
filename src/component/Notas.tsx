@@ -22,9 +22,9 @@ const Notas = () => {
   console.log(notes);
   
   return (
-    <div>
+    <>
       <Home />
-    </div>
+    </>
   )
 }
 

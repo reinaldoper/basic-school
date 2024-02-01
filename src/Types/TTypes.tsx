@@ -1,4 +1,6 @@
-
+export interface IRender {
+  id: number;
+} 
 
 export interface IEvent {
   currentTarget: string;
@@ -41,6 +43,7 @@ export interface Aluno {
   id?: number;
   nome: string;
   role?: string;
+  email?: string;
   professor: {
     id: number,
     nome: string,

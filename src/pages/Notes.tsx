@@ -13,9 +13,9 @@ const Notes = () => {
   if(!logar) location('/');
 
   return (
-    <div>
+    <>
       <Notas />
-    </div>
+    </>
   )
 }
 
