@@ -51,7 +51,7 @@ const ListProfessores = () => {
   return (
     <>
       <div className="render-teacher">
-        <h2 className="w3-cursive">{listTeacher && !modalIsOpen ? 'Lista de professores:' : 'Aluno(a):'}</h2>
+        <h2 className="w3-cursive">{listTeacher && !modalIsOpen ? 'Lista de professores:' : 'Aluno(a)s:'}</h2>
         {listTeacher && !modalIsOpen ? <>{listTeacher}</> : <>{renderTeacherDetails()}</>}
       </div>
     </>

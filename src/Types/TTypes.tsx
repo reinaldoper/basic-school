@@ -40,10 +40,13 @@ export interface StoreActions {
 }
 
 export interface Aluno {
-  id?: number;
+  id: number;
   nome: string;
   role?: string;
   email?: string;
+  notas?: [{
+    valor: string, id: number
+  }]
   professor: {
     id: number,
     nome: string,

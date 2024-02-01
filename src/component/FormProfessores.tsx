@@ -13,7 +13,8 @@ const FormProfessores = () => {
   const teacher = useStore((state) => state.setDisciplina)
   const logado = useStore((state) => state.logar)
 
-
+  console.log(disciplina);
+  
   const handleClick = async () => {
     const headers: RequestInit = {
       method: 'POST',
@@ -109,7 +110,16 @@ const FormProfessores = () => {
               <input className="w3-input" type="text" value={email} onChange={e => setEmail(e.target.value)} />
               <label>Email</label></p>
             <p>
-              <input className="w3-input" type="text" value={disciplina} onChange={e => setDisciplina(e.target.value)} />
+              <select className="w3-input" value={disciplina} onChange={e => setDisciplina(e.target.value)}>
+                <option value="matematica">MATEMATICA</option>
+                <option value="geografia">GEOGRAFIA</option>
+                <option value="fisica">FISICA</option>
+                <option value="programacao">PROGRAMACAO</option>
+                <option value="portugues">PORTUGUES</option>
+                <option value="IoT">IoT</option>
+                <option value="Ingles">INGLES</option>
+                <option value="historia">HISTORIA</option>
+              </select>
               <label>Disciplina</label></p>
             <p>
               <button type="button" onClick={handleClick} className="w3-btn w3-black">Salvar</button>

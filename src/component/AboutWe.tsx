@@ -27,9 +27,11 @@ const AboutWe = () => {
         Com gratidão, <br /><br />
 
         <span>
-          {diretor ? diretor: <p>Carregando...</p>}<br /><br />
+          {diretor ? diretor: <p>Carregando...</p>}<br />
           Diretor da Escola Basic School
+          <p>Todos os direitos reservados a &copy;Copyright</p>
         </span>
+        
       </p>
 
     </>
