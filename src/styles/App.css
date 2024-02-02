@@ -37,3 +37,13 @@ body,h1,h2,h3,h4,h5,h6,p {font-family: Sofia, serif;}
   background-color: darkslategray;
 }
 
+.fa-close{
+  cursor: pointer;
+}
+
+
+.pagination{
+  display: flex;
+  font-size: larger;
+  margin: auto;
+}
