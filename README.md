@@ -1,5 +1,16 @@
 # Basic school
 
+### Clonar o projeto:
+
+```shell
+git clone git@github.com:reinaldoper/school.git
+```
+`cd escola-front`
+
+`npm install`
+
+`npm run dev`
+
 ## School Basic - Projeto ReactJS com TypeScript
 
 ### Introdução
@@ -28,6 +39,7 @@ escola-front/
 ```
 
 - src/: Contém os principais códigos fonte do projeto.
+- assets/: Contém as imgens do projeto.
 - components/: Componentes React reutilizáveis.
 - pages/: Páginas da aplicação.
 - services/: Serviços para integração com API ou lógica de negócios.
