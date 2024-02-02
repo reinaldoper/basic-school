@@ -67,8 +67,8 @@ const ListAlunos = () => {
   const listAlunos = paginatedData.length && paginatedData.map(aluno => (
     <ol key={aluno.id} id="w3-ul" className="w3-container w3-animate-top">
       <li>student: {aluno.nome}</li>
-      <li id="list-between">teacher: {aluno.professor.nome}</li>
-      <li id='list-email'>discipline: {aluno.professor.disciplina}</li>
+      <li id="list-between">teacher: {aluno.professor !== null ? aluno.professor.nome : null}</li>
+      <li id='list-email'>discipline: {aluno.professor !== null ? aluno.professor.disciplina : null}</li>
       <li>
         <button type="button" className="fa fa-search search" onClick={() => handleStudentClick(aluno.id)}></button>
       </li>
