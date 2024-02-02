@@ -22,7 +22,7 @@ export interface User {
 
 export interface StoreState {
   logar: boolean;
-  user: string;
+  user: User[];
   admin: Admin[];
   logUser: Aluno[];
   disciplina: Disciplina[];
@@ -32,7 +32,7 @@ export interface StoreState {
 export interface StoreActions {
   insertLogar: () => void;
   resetLogar: () => void;
-  setAddUser: (payload: string) => void;
+  setAddUser: (payload: User[]) => void;
   setDisciplina: (payload: Disciplina[]) => void;
   setAlunos: (payload:Aluno[]) => void;
   setAdmin: (payload:Admin[]) => void;

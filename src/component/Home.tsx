@@ -4,10 +4,11 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchDiretor, fetchProfessor, fetchAluno } from '../services/fetchApi';
 import { useStore } from "../store/state";
+import { User } from '../Types/TTypes';
 
 
 const Home = () => {
-  const [diretor, setDiretor] = useState<string>('');
+  const [diretor, setDiretor] = useState<User[]>([]);
 
   const teacher = useStore((state) => state.setDisciplina)
 
@@ -24,7 +25,7 @@ const Home = () => {
   useEffect(() => {
     const all = async () => {
       const result = await fetchDiretor();
-      setDiretor(result.message[0].nome);
+      setDiretor(result.message);
       const headers: RequestInit = {
         method: 'GET',
         headers: {

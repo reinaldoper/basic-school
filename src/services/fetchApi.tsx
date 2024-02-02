@@ -22,6 +22,12 @@ export const fetchAluno = async (options: RequestInit) => {
   return data;
 }
 
+export const fetchAlunoId = async (options: RequestInit, id: number) => {
+  const response = await fetch(`${URL_ALUNO}/${id}`, options);
+  const data = await response.json();
+  return data;
+}
+
 export const fetchNotas = async (options: RequestInit) => {
   const response = await fetch(URL_NOTAS, options);
   const data = await response.json();
