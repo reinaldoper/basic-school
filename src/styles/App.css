@@ -120,3 +120,9 @@ input:checked + .slider:before {
   font-size: larger;
   margin: auto;
 }
+
+#container-notes{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}

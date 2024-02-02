@@ -48,8 +48,7 @@ const ListAlunos = () => {
 
       return result?.notas?.map((aluno) => (
         <ol id="w3-ul" className="w3-container w3-animate-top">
-          <li id="teacher-name">{aluno.id}</li>
-          <li id="list-between">email: {aluno.valor}</li>
+          <li id="list-between">Nota atribuida: {aluno.valor}</li>
           <li>
             <button type="button" className="fa fa-close search" onClick={closeModal}></button>
           </li>

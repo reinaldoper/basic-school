@@ -28,8 +28,15 @@ export const fetchAlunoId = async (options: RequestInit, id: number) => {
   return data;
 }
 
-export const fetchNotas = async (options: RequestInit) => {
-  const response = await fetch(URL_NOTAS, options);
-  const data = await response.json();
-  return data;
+export const fetchNotas = async (options: RequestInit, id: number | null) => {
+  if (id) {
+    const response = await fetch(`${URL_NOTAS}/${id}`, options);
+    const data = await response.json();
+    return data;
+  } else {
+    const response = await fetch(URL_NOTAS, options);
+    const data = await response.json();
+    return data;
+  }
+
 }
