@@ -7,6 +7,7 @@ import Pagination from 'react-js-pagination';
 const ListProfessores = () => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const [selectedTeacherId, setSelectedTeacherId] = useState<number | null>(null);
+  const [render, setRender] = useState<boolean>(false);
 
   const teacherResult = useStore((state) => state.disciplina);
 
@@ -31,11 +32,13 @@ const ListProfessores = () => {
   );
 
   const handleTeacherClick = (id: number) => {
+    setRender(true);
     setIsOpen(true);
     setSelectedTeacherId(id);
   };
 
   const closeModal = () => {
+    setRender(false);
     setIsOpen(false);
     setSelectedTeacherId(null);
   };
@@ -61,9 +64,9 @@ const ListProfessores = () => {
 
   const listTeacher = paginatedData.length && paginatedData.map((teacher) => (
     <ol key={teacher.id} id="w3-ul" className="w3-container w3-animate-top">
-      <li id="teacher-name">{teacher.nome}</li>
-      <li id="list-between">{teacher.disciplina}</li>
-      <li id="list-email">{teacher.email}</li>
+      <li id="teacher-name">Prf(a): {teacher.nome}</li>
+      <li id="list-between">Disciplina: {teacher.disciplina}</li>
+      
       <li>
         <button type="button" className="fa fa-search search" onClick={() => handleTeacherClick(teacher.id)}></button>
       </li>
@@ -75,7 +78,7 @@ const ListProfessores = () => {
       <div className="render-teacher">
         <h2 className="w3-cursive">{listTeacher && !modalIsOpen ? 'Lista de professores:' : 'Aluno(a)s:'}</h2>
         {listTeacher && !modalIsOpen ? <>{listTeacher}</> : <>{renderTeacherDetails()}</>}
-        {totalItemsCount > itemsPerPage ? 
+        {totalItemsCount > itemsPerPage && !render ? 
         <div className="pagination">
           <Pagination
             itemClass='pagination'
