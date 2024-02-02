@@ -5,6 +5,7 @@ import Pagination from 'react-js-pagination';
 const ListAlunos = () => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const [selectedStudentId, setSelectedStudentId] = useState<number | null>(null);
+  const [render, setRender] = useState<boolean>(false);
 
   const listAluno = useStore((state) => state.aluno)
 
@@ -30,12 +31,13 @@ const ListAlunos = () => {
 
 
   const handleStudentClick = (id: number) => {
-
+    setRender(true);
     setIsOpen(true);
     setSelectedStudentId(id);
   };
 
   const closeModal = () => {
+    setRender(false);
     setIsOpen(false);
     setSelectedStudentId(null);
   };
@@ -81,18 +83,17 @@ const ListAlunos = () => {
           <button type="button" className="fa fa-close" onClick={closeModal}></button>
         }</h2>
         {listAlunos && !modalIsOpen ? <>{listAlunos}</> : <>{renderStudentDetails()}</>}
-        {totalItemsCount > itemsPerPage ? 
-        <div className="pagination">
-          <Pagination
-            itemClass='pagination'
-            activePage={activePage}
-            itemsCountPerPage={itemsPerPage}
-            totalItemsCount={totalItemsCount}
-            pageRangeDisplayed={pageRangeDisplayed}
-            onChange={handlePageChange}
-          />
-
-        </div> : null}
+        {totalItemsCount > itemsPerPage && !render ?
+          <div className="pagination">
+            <Pagination
+              itemClass='pagination'
+              activePage={activePage}
+              itemsCountPerPage={itemsPerPage}
+              totalItemsCount={totalItemsCount}
+              pageRangeDisplayed={pageRangeDisplayed}
+              onChange={handlePageChange}
+            />
+          </div> : null}
       </div>
     </>
   )
