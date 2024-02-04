@@ -3,7 +3,8 @@ import { fetchNotas } from "../services/fetchApi";
 import { useState } from "react";
 import { useStore } from "../store/state";
 
-const Notas = () => {
+
+const UpdateNotas = () => {
   const [nome, setNome] = useState<string>('')
   const [nota, setNota] = useState<number>(5)
   const [error, setError] = useState<boolean>(false)
@@ -28,19 +29,18 @@ const Notas = () => {
   const handleClick = async () => {
 
     const headers: RequestInit = {
-      method: 'POST',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         valor: Number(nota),
-        alunoId: newNota[0].id,
         semestre
       }),
     }
 
     if (verifyVariables()) {
-      await fetchNotas(headers, null)
+      await fetchNotas(headers, Number(newNota[0].id))
       reset();
       setError(false);
     } else {
@@ -87,7 +87,7 @@ const Notas = () => {
       {logado && newNota.length ? <div id='container-notes'>
         <div className="w3-container input-card">
           {error && alert()}
-          <h2>Cadastrar nota:</h2>
+          <h2>Atualizar nota:</h2>
 
           <div className="w3-card-4">
             <div className="w3-container w3-green">
@@ -134,4 +134,4 @@ const Notas = () => {
   )
 }
 
-export default Notas
+export default UpdateNotas

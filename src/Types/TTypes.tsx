@@ -44,8 +44,9 @@ export interface Aluno {
   nome: string;
   role?: string;
   email?: string;
+  semestre?: string;
   notas?: [{
-    valor: string, id: number
+    valor: string, id: number, semestre: string
   }]
   professor: {
     id: number,
