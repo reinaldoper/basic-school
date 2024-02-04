@@ -90,7 +90,7 @@ As dependências do projeto estão listadas no arquivo package.json. Certifique-
 - Tela inicial:
 
 
-<img src"/src/assets/school.png" alt="geral" />
+<img src"src/assets/school.png" alt="geral" />
 
 
 Boas práticas de codificação,
