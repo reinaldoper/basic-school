@@ -91,6 +91,14 @@ Tela inicial:
 
 ![Tela Inicial](./src/assets/school.png)
 
+Tela Alunos:
+
+![Tela Alunos](./src/assets/alunos-school.png)
+
+Tela Professores:
+
+![Tela Professores](./src/assets/teacher-school.png)
+
 
 Boas práticas de codificação,
 
