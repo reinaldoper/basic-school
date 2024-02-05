@@ -32,7 +32,7 @@ const Home = () => {
       }
       const result = await fetchDiretor(headers, null);
       setDiretor(result.message);
-     
+
 
       const list = await fetchProfessor(headers);
       teacher(list.message)
@@ -93,6 +93,9 @@ const Home = () => {
       case "/notes":
         router(name)
         break;
+      case "/library":
+        router(name)
+        break;
 
       default:
         break;
@@ -124,6 +127,7 @@ const Home = () => {
           <button type="button" name='/teacher' className={`w3-button ${local === '/teacher' ? 'active' : null}`} onClick={handleClick}>Professores</button>
           <button type="button" name='/manager' className={`w3-button ${local === '/manager' ? 'active' : null}`} onClick={handleClick}>Diretor</button>
           <button type="button" name='/about' className={`w3-button ${local === '/about' ? 'active' : null}`} onClick={handleClick}>Sobre nós</button>
+          <button type="button" name='/library' className={`w3-button ${local === '/library' ? 'active' : null}`} onClick={handleClick}>Livraria</button>
           {admin.length && logar && admin[0].role === 'ADMIN' ? <button type="button" name='/notes' className={`w3-button ${local === '/notes' ? 'active' : null}`} onClick={handleClick}>Notas</button>
             : null}
           <button type="button" name='/login' className={`w3-button ${local === '/login' ? 'active' : null}`} onClick={handleClick}>Login</button>

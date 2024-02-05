@@ -6,6 +6,7 @@ import Diretor from "../pages/Diretor";
 import About from "../pages/About";
 import LogiIn from "../pages/LogiIn";
 import Notes from "../pages/Notes";
+import Library from "../pages/Library";
 
 
 const Router = () => {
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path="/manager" element={<Diretor />} />
         <Route path="/about" element={<About />} />
         <Route path="/notes" element={<Notes />} />
+        <Route path="/library" element={<Library />} />
       </Routes>
     </>
   )
