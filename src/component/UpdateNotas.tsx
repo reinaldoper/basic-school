@@ -5,7 +5,6 @@ import { useStore } from "../store/state";
 
 
 const UpdateNotas = () => {
-  const [nome, setNome] = useState<string>('')
   const [nota, setNota] = useState<number>(5)
   const [error, setError] = useState<boolean>(false)
   const [semestre, setSemestre] = useState<string>('')
@@ -92,7 +91,7 @@ const UpdateNotas = () => {
   }
 
   const verifyVariables = () => {
-    if (nome.length === 0 || nota < 5 || semestre.length === 0) {
+    if (nota < 5 || semestre.length === 0) {
       return false
     } else {
       return true
@@ -101,7 +100,6 @@ const UpdateNotas = () => {
 
 
   const reset = () => {
-    setNome('')
     setSemestre('')
   };
 
