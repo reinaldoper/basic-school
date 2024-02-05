@@ -127,3 +127,32 @@ input:checked + .slider:before {
   justify-content: center;
   margin: auto;
 }
+
+.books{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.book-card{
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.book-card img{
+  max-width: 50%;
+  height: 50%;
+  margin: auto;
+}
+
+.book-card p{
+  margin: auto;
+}
+
+.book-input{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-top: 10px;
+}

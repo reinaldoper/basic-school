@@ -1,6 +1,6 @@
 export interface IRender {
   id: number;
-} 
+}
 
 export interface IEvent {
   currentTarget: string;
@@ -35,8 +35,8 @@ export interface StoreActions {
   resetLogar: () => void;
   setAddUser: (payload: User[]) => void;
   setDisciplina: (payload: Disciplina[]) => void;
-  setAlunos: (payload:Aluno[]) => void;
-  setAdmin: (payload:Admin[]) => void;
+  setAlunos: (payload: Aluno[]) => void;
+  setAdmin: (payload: Admin[]) => void;
   setLogUser: (payload: Aluno[]) => void;
   setUpdateAluno: (payload: Aluno[]) => void;
 }
@@ -68,4 +68,74 @@ export interface Disciplina {
   disciplina: string;
   createdAt?: string;
   alunos?: Aluno[];
+}
+
+interface IndustryIdentifier {
+  type: string;
+  identifier: string;
+}
+
+interface ReadingModes {
+  text: boolean;
+  image: boolean;
+}
+interface ImageLinks {
+  smallThumbnail: string;
+  thumbnail: string;
+}
+
+interface VolumeInfo {
+  title: string;
+  subtitle: string;
+  authors: string[];
+  publisher: string;
+  publishedDate: string;
+  description: string;
+  industryIdentifiers: IndustryIdentifier[];
+  readingModes: ReadingModes;
+  pageCount: number;
+  printType: string;
+  categories: string[];
+  imageLinks: ImageLinks;
+}
+
+
+
+interface SaleInfo {
+  country: string;
+  saleability: string;
+  isEbook: boolean;
+}
+
+interface Epub {
+  isAvailable: boolean;
+}
+
+interface Pdf {
+  isAvailable: boolean;
+  acsTokenLink: string;
+}
+
+interface AccessInfo {
+  country: string;
+  viewability: string;
+  embeddable: boolean;
+  publicDomain: boolean;
+  textToSpeechPermission: string;
+  epub: Epub;
+  pdf: Pdf;
+  webReaderLink: string;
+  accessViewStatus: string;
+  quoteSharingAllowed: boolean;
+}
+
+interface SearchInfo {
+  textSnippet: string;
+}
+
+export interface Book {
+  volumeInfo: VolumeInfo;
+  saleInfo: SaleInfo;
+  accessInfo: AccessInfo;
+  searchInfo: SearchInfo;
 }

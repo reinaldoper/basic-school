@@ -99,6 +99,10 @@ Tela Professores:
 
 ![Tela Professores](./src/assets/teacher-school.png)
 
+Tela Livraria:
+
+![Tela Livraria](./src/assets/image-library.png)
+
 
 Boas práticas de codificação,
 
