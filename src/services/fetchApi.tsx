@@ -10,10 +10,16 @@ export const fetchProfessor = async (options: RequestInit) => {
   return data;
 }
 
-export const fetchDiretor = async () => {
-  const response = await fetch(URL_DIRETOR);
-  const data = await response.json();
-  return data;
+export const fetchDiretor = async (options: RequestInit, id: number | null) => {
+  if (id) {
+    const response = await fetch(`${URL_DIRETOR}/${id}`, options);
+    const data = await response.json();
+    return data;
+  } else {
+    const response = await fetch(URL_DIRETOR, options);
+    const data = await response.json();
+    return data;
+  }
 }
 
 export const fetchAluno = async (options: RequestInit) => {

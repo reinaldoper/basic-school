@@ -24,14 +24,15 @@ const Home = () => {
 
   useEffect(() => {
     const all = async () => {
-      const result = await fetchDiretor();
-      setDiretor(result.message);
       const headers: RequestInit = {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         }
       }
+      const result = await fetchDiretor(headers, null);
+      setDiretor(result.message);
+     
 
       const list = await fetchProfessor(headers);
       teacher(list.message)
