@@ -124,18 +124,6 @@ const UpdateNotas = () => {
 
             <form className="w3-container w3-green">
               <p>
-                <select value={nome} onChange={e => setNome(e.target.value)}>
-                  <option value="">Aluno:</option>
-                  {newNota.map((student) => (
-
-                    <option key={student.id} value={student.nome}>
-                      {student.nome}
-                    </option>
-                  ))}
-                </select>
-              </p>
-              <hr />
-              <p>
                 <select value={semestre} onChange={e => setSemestre(e.target.value)}>
                   <option value="">Semestre:</option>
                   <option value="1°-semestre">1°-semestre</option>
