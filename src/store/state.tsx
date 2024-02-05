@@ -17,4 +17,6 @@ export const useStore = create<StoreState & StoreActions>((set) => ({
   setAdmin: (payload: Admin[]) => set(() => ({ admin: payload })),
   logUser: [],
   setLogUser: (payload: Aluno[]) => set(() => ({ logUser: payload })),
+  update: [],
+  setUpdateAluno: (payload: Aluno[]) => set(() => ({ update: payload })),
 }));

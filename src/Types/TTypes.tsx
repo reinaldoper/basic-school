@@ -27,6 +27,7 @@ export interface StoreState {
   logUser: Aluno[];
   disciplina: Disciplina[];
   aluno: Aluno[];
+  update: Aluno[];
 }
 
 export interface StoreActions {
@@ -37,6 +38,7 @@ export interface StoreActions {
   setAlunos: (payload:Aluno[]) => void;
   setAdmin: (payload:Admin[]) => void;
   setLogUser: (payload: Aluno[]) => void;
+  setUpdateAluno: (payload: Aluno[]) => void;
 }
 
 export interface Aluno {

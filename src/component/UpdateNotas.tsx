@@ -1,5 +1,5 @@
-
-import { fetchNotas } from "../services/fetchApi";
+import '../styles/home.css'
+import { fetchNotas, fetchAluno } from "../services/fetchApi";
 import { useState } from "react";
 import { useStore } from "../store/state";
 
@@ -9,11 +9,11 @@ const UpdateNotas = () => {
   const [nota, setNota] = useState<number>(5)
   const [error, setError] = useState<boolean>(false)
   const [semestre, setSemestre] = useState<string>('')
-  console.log(nota);
-
-
-  console.log(nome);
-
+  const [log, setLog] = useState<boolean>(false)
+  const [id, setId] = useState<number>()
+ 
+  
+  const setAlunos = useStore((state) => state.setAlunos)
 
   const logado = useStore((state) => state.logar)
 
@@ -24,6 +24,29 @@ const UpdateNotas = () => {
   const admin = useStore((state) => state.admin)
 
   const newNota = aluno.filter(nota => nota.professor.nome === admin[0].nome)
+  
+
+  const handleStudentClick = (id: number) => {
+    setId(id);
+    setLog(true);
+    const note = newNota[0].notas?.filter(nota => nota.id === id);
+    setSemestre(note && note[0] ? note[0].semestre : '');
+    setNota(note && note[0] ? Number(note[0].valor) : 5);
+
+  }
+
+
+
+  const updateAluno = newNota ? newNota[0].notas?.map(nota => (
+    <ol id="update-ol" className="w3-container w3-animate-top">
+      <li>Semestre: {nota.semestre === null ? null : nota.semestre}</li>
+      <li>Nota: {nota.valor}</li>
+      <li>
+            <button type="button" className="fa fa-search search" onClick={() => handleStudentClick(nota.id)}></button>
+          </li>
+    </ol>
+  )) : null
+
 
 
   const handleClick = async () => {
@@ -40,9 +63,18 @@ const UpdateNotas = () => {
     }
 
     if (verifyVariables()) {
-      await fetchNotas(headers, Number(newNota[0].id))
+      await fetchNotas(headers, Number(id))
       reset();
+      setLog(false);
       setError(false);
+      const headersGet: RequestInit = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
+      const listStudents = await fetchAluno(headersGet)
+      setAlunos(listStudents.message)
     } else {
       reset();
       setError(true);
@@ -73,18 +105,14 @@ const UpdateNotas = () => {
     setSemestre('')
   };
 
-  const alertLogout = () => {
-    return (
-      <div className="w3-panel w3-yellow">
-        <h3>Warning!</h3>
-        <p>Nota já lançada.</p>
-      </div>
-    )
-  }
 
   return (
     <>
-      {logado && newNota.length ? <div id='container-notes'>
+      <div className="update-student">
+        {updateAluno}
+      </div>
+
+      {logado && newNota.length && log ? <div id='container-notes'>
         <div className="w3-container input-card">
           {error && alert()}
           <h2>Atualizar nota:</h2>
@@ -127,9 +155,7 @@ const UpdateNotas = () => {
             </form>
           </div>
         </div>
-      </div> : <div className="w3-container input-card w3-cursive">
-        <h2 className='w3-cursive'>{alertLogout()}</h2>
-      </div>}
+      </div> : null}
     </>
   )
 }
