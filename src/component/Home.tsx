@@ -14,6 +14,8 @@ const Home = () => {
 
   const admin = useStore((state) => state.admin)
 
+  const setAdmin = useStore((state) => state.setAdmin)
+
   const logout = useStore((state) => state.resetLogar)
 
   const listAlunos = useStore((state) => state.setAlunos)
@@ -108,9 +110,10 @@ const Home = () => {
 
   const handleLogar = () => {
     logout();
+    setAdmin([]);
   };
 
-
+  const userLogedIn = useStore((state) => state.user);
 
   return (
     <>
@@ -130,9 +133,10 @@ const Home = () => {
           <button type="button" name='/library' className={`w3-button ${local === '/library' ? 'active' : null}`} onClick={handleClick}>Livraria</button>
           {admin.length && logar && admin[0].role === 'ADMIN' ? <button type="button" name='/notes' className={`w3-button ${local === '/notes' ? 'active' : null}`} onClick={handleClick}>Notas</button>
             : null}
-          <button type="button" name='/login' className={`w3-button ${local === '/login' ? 'active' : null}`} onClick={handleClick}>Login</button>
+          {!logar ? <button type="button" name='/login' className={`w3-button ${local === '/login' ? 'active' : null}`} onClick={handleClick}>Login</button>
+            : null}
           <button type="button" className='w3-button' onClick={handleLogar}>Logout</button>
-          <li className="w3-large"><i className="fa fa-user"></i> {admin.length && logar ? admin[0].nome : logUser.length && !logar ? logUser[0].nome : 'user-login'}</li>
+          <li className="w3-large"><i className="fa fa-user"></i> {admin.length && logar ? admin[0].nome : logUser.length && !logar ? logUser[0].nome : userLogedIn.length && logar ? userLogedIn[0].nome : 'user-login'}</li>
         </div>
       </div>
 

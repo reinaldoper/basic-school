@@ -20,6 +20,8 @@ const Login = () => {
 
   const listAluno = useStore((state) => state.aluno)
 
+  const userLogan = useStore((state) => state.user)
+
   const navigate = useNavigate();
 
   const alert = () => {
@@ -41,6 +43,10 @@ const Login = () => {
       setError(false);
       logar();
       admin(ability);
+      navigate('/')
+    } else if(userLogan[0].nome === name && userLogan[0].role === "DIR") {
+      setError(false);
+      logar();
       navigate('/')
     } else if (listAluno[0]?.role === "USER" && listAluno[0].nome === name) {
       setError(false);
