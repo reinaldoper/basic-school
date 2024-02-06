@@ -6,7 +6,6 @@ const Library = () => {
     <>
       <Home />
       <Biblioteca />
-      <hr />
     </>
   )
 }
