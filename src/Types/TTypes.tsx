@@ -17,6 +17,7 @@ export interface Admin {
 export interface User {
   nome: string;
   role: string;
+  email: string;
 }
 
 
@@ -28,6 +29,7 @@ export interface StoreState {
   disciplina: Disciplina[];
   aluno: Aluno[];
   update: Aluno[];
+  userLogar: boolean;
 }
 
 export interface StoreActions {
@@ -39,6 +41,8 @@ export interface StoreActions {
   setAdmin: (payload: Admin[]) => void;
   setLogUser: (payload: Aluno[]) => void;
   setUpdateAluno: (payload: Aluno[]) => void;
+  resetUserLogar: () => void;
+  setUserLogar: () => void;
 }
 
 export interface Aluno {

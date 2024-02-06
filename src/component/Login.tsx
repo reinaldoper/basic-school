@@ -22,6 +22,8 @@ const Login = () => {
 
   const userLogan = useStore((state) => state.user)
 
+  const resetLogar = useStore((state) => state.resetUserLogar)
+
   const navigate = useNavigate();
 
   const alert = () => {
@@ -39,19 +41,20 @@ const Login = () => {
     const ability = techer.filter(e => e.email === email)
     
     
-    if (ability[0]?.role === "ADMIN" && ability[0].nome === name) {
+    if (ability[0]?.role === "ADMIN" && ability[0].nome === name && ability[0].email === email) {
       setError(false);
       logar();
       admin(ability);
       navigate('/')
-    } else if(userLogan[0].nome === name && userLogan[0].role === "DIR") {
+    } else if(userLogan[0].nome === name && userLogan[0].role === "DIR" && userLogan[0].email === email) {
       setError(false);
       logar();
       navigate('/')
-    } else if (listAluno[0]?.role === "USER" && listAluno[0].nome === name) {
+    } else if (listAluno[0]?.role === "USER" && listAluno[0].nome === name && listAluno[0].email === email) {
       setError(false);
       user(listAluno);
       logout();
+      resetLogar();
       navigate('/')
     } else {
       setError(true);

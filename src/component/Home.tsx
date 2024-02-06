@@ -24,6 +24,8 @@ const Home = () => {
 
   const logUser = useStore((state) => state.logUser)
 
+  const setUserLogar = useStore((state) => state.setUserLogar);
+
   useEffect(() => {
     const all = async () => {
       const headers: RequestInit = {
@@ -103,17 +105,22 @@ const Home = () => {
         break;
     }
   };
-
+  
   const router = (url: string) => {
     navigate(url);
   };
 
   const handleLogar = () => {
     logout();
+    setUserLogar();
     setAdmin([]);
   };
 
   const userLogedIn = useStore((state) => state.user);
+
+  const logarUser = useStore((state) => state.userLogar);
+
+  
 
   return (
     <>
@@ -133,10 +140,10 @@ const Home = () => {
           <button type="button" name='/library' className={`w3-button ${local === '/library' ? 'active' : null}`} onClick={handleClick}>Livraria</button>
           {admin.length && logar && admin[0].role === 'ADMIN' ? <button type="button" name='/notes' className={`w3-button ${local === '/notes' ? 'active' : null}`} onClick={handleClick}>Notas</button>
             : null}
-          {!logar ? <button type="button" name='/login' className={`w3-button ${local === '/login' ? 'active' : null}`} onClick={handleClick}>Login</button>
+          {!logar && logarUser ? <button type="button" name='/login' className={`w3-button ${local === '/login' ? 'active' : null}`} onClick={handleClick}>Login</button>
             : null}
           <button type="button" className='w3-button' onClick={handleLogar}>Logout</button>
-          <li className="w3-large"><i className="fa fa-user"></i> {admin.length && logar ? admin[0].nome : logUser.length && !logar ? logUser[0].nome : userLogedIn.length && logar ? userLogedIn[0].nome : 'user-login'}</li>
+          <li className="w3-large"><i className="fa fa-user"></i> {admin.length && logar ? admin[0].nome : logUser.length && !logar && !logarUser ? logUser[0].nome : userLogedIn.length && logar ? userLogedIn[0].nome : 'user-login'}</li>
         </div>
       </div>
 

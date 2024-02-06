@@ -19,4 +19,7 @@ export const useStore = create<StoreState & StoreActions>((set) => ({
   setLogUser: (payload: Aluno[]) => set(() => ({ logUser: payload })),
   update: [],
   setUpdateAluno: (payload: Aluno[]) => set(() => ({ update: payload })),
+  userLogar: true,
+  resetUserLogar: () => set({ userLogar: false }),
+  setUserLogar: () => set({ userLogar: true }),
 }));
