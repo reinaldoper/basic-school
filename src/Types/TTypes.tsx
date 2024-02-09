@@ -30,6 +30,7 @@ export interface StoreState {
   aluno: Aluno[];
   update: Aluno[];
   userLogar: boolean;
+  dir: boolean;
 }
 
 export interface StoreActions {
@@ -43,6 +44,8 @@ export interface StoreActions {
   setUpdateAluno: (payload: Aluno[]) => void;
   resetUserLogar: () => void;
   setUserLogar: () => void;
+  setDiretor: () => void;
+  resetDiretor: () => void;
 }
 
 export interface Aluno {

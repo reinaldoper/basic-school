@@ -7,6 +7,7 @@ import About from "../pages/About";
 import LogiIn from "../pages/LogiIn";
 import Notes from "../pages/Notes";
 import Library from "../pages/Library";
+import DeleteTeacher from "../pages/DeleteTeacher";
 
 
 const Router = () => {
@@ -21,6 +22,7 @@ const Router = () => {
         <Route path="/about" element={<About />} />
         <Route path="/notes" element={<Notes />} />
         <Route path="/library" element={<Library />} />
+        <Route path="/teacher/del" element={<DeleteTeacher />} />
       </Routes>
     </>
   )

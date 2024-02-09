@@ -26,6 +26,10 @@ const Home = () => {
 
   const setUserLogar = useStore((state) => state.setUserLogar);
 
+  const resetDiretor = useStore((state) => state.resetDiretor);
+
+  const dir = useStore((state) => state.dir)
+
   useEffect(() => {
     const all = async () => {
       const headers: RequestInit = {
@@ -100,6 +104,9 @@ const Home = () => {
       case "/library":
         router(name)
         break;
+      case "/teacher/del":
+        router(name)
+        break;
 
       default:
         break;
@@ -113,6 +120,7 @@ const Home = () => {
   const handleLogar = () => {
     logout();
     setUserLogar();
+    resetDiretor();
     setAdmin([]);
   };
 
@@ -143,6 +151,7 @@ const Home = () => {
           {!logar && logarUser ? <button type="button" name='/login' className={`w3-button ${local === '/login' ? 'active' : null}`} onClick={handleClick}>Login</button>
             : null}
           <button type="button" className='w3-button' onClick={handleLogar}>Logout</button>
+          { dir && <button type="button" name='/teacher/del' className={`w3-button ${local === '/teacher/del' ? 'active' : null}`} onClick={handleClick}>DelTeacher</button>}
           <li className="w3-large"><i className="fa fa-user"></i> {admin.length && logar ? admin[0].nome : logUser.length && !logar && !logarUser ? logUser[0].nome : userLogedIn.length && logar ? userLogedIn[0].nome : 'user-login'}</li>
         </div>
       </div>

@@ -15,6 +15,8 @@ const FormAlunos = () => {
   const logado = useStore((state) => state.logar)
   const listTeacher = useStore((state) => state.disciplina)
 
+  const dir = useStore((state) => state.dir)
+
 
   const handleClick = async () => {
     const numberIdade = Number(idade)
@@ -94,7 +96,7 @@ const FormAlunos = () => {
 
   return (
     <>
-      {logado ? <div className="w3-container input-card">
+      {logado && !dir ? <div className="w3-container input-card">
         {error && alert()}
         <h2>Cadastrar aluno:</h2>
 

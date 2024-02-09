@@ -24,6 +24,8 @@ const Login = () => {
 
   const resetLogar = useStore((state) => state.resetUserLogar)
 
+  const setDiretor = useStore((state) => state.setDiretor)
+
   const navigate = useNavigate();
 
   const alert = () => {
@@ -49,6 +51,7 @@ const Login = () => {
     } else if(userLogan[0].nome === name && userLogan[0].role === "DIR" && userLogan[0].email === email) {
       setError(false);
       logar();
+      setDiretor();
       navigate('/')
     } else if (listAluno[0]?.role === "USER" && listAluno[0].nome === name && listAluno[0].email === email) {
       setError(false);

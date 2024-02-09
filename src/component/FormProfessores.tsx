@@ -13,7 +13,8 @@ const FormProfessores = () => {
   const teacher = useStore((state) => state.setDisciplina)
   const logado = useStore((state) => state.logar)
 
-  console.log(disciplina);
+  const dir = useStore((state) => state.dir)
+
   
   const handleClick = async () => {
     const headers: RequestInit = {
@@ -93,7 +94,7 @@ const FormProfessores = () => {
 
   return (
     <>
-      {logado ? <div className="w3-container input-card">
+      {logado && dir ? <div className="w3-container input-card">
         {error && alert()}
         <h2>Cadastrar professor:</h2>
 

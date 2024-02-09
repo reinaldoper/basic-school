@@ -14,10 +14,10 @@ const Alunos = () => {
 
   const admin = useStore((state) => state.admin)
 
-  const user = useStore((state) => state.user)
+ 
 
   const userRs = (): boolean => {
-    if(admin.length && admin[0].role === 'ADMIN' || user.length && user[0].role === 'DIR') {
+    if(admin.length && admin[0].role === 'ADMIN') {
       return true
     }else {
       return false

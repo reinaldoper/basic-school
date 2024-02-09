@@ -15,6 +15,8 @@ const UpdateAlunos = () => {
 
   const aluno = useStore((state) => state.aluno)
 
+  const dir = useStore((state) => state.dir)
+
 
   const handleClick = async () => {
     const idProfessor = Number(teacherId)
@@ -90,7 +92,7 @@ const UpdateAlunos = () => {
 
   return (
     <>
-      {logado ? <div className="w3-container input-card">
+      {logado && !dir ? <div className="w3-container input-card">
         {error && alert()}
         <h2>Atualizar aluno:</h2>
 

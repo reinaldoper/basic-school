@@ -22,4 +22,7 @@ export const useStore = create<StoreState & StoreActions>((set) => ({
   userLogar: true,
   resetUserLogar: () => set({ userLogar: false }),
   setUserLogar: () => set({ userLogar: true }),
+  dir: false,
+  setDiretor: () => set({ dir: true }),
+  resetDiretor: () => set({ dir: false }),
 }));
