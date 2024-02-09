@@ -16,11 +16,19 @@ const Alunos = () => {
 
   const user = useStore((state) => state.user)
 
+  const userRs = (): boolean => {
+    if(admin.length && admin[0].role === 'ADMIN' || user.length && user[0].role === 'DIR') {
+      return true
+    }else {
+      return false
+    }
+  }
+
 
   return (
     <>
       <Home />
-      {logout && (admin.length | user.length) ? <span className="update-toggle">
+      {logout && userRs() ? <span className="update-toggle">
         <span>{!toggle ? 'Cadastrar aluno': 'Atualizar aluno'}</span>
         <label className="switch">
           <input type="checkbox" checked={toggle} onChange={e => setToggle(e.target.checked)} />
@@ -28,8 +36,8 @@ const Alunos = () => {
         </label>
       </span>: null}
       
-      <section className={`${logout && (admin.length | user.length) ? 'list-professor' : 'logout'}`}>
-        { !toggle && logout && (admin.length | user.length) ?  <FormAlunos />: <UpdateAlunos /> }
+      <section className={`${logout && userRs() ? 'list-professor' : 'logout'}`}>
+        { !toggle && logout && userRs() ?  <FormAlunos />: <UpdateAlunos /> }
         <ListAlunos />
       </section>
       <hr />
