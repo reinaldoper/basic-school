@@ -130,13 +130,25 @@ input:checked + .slider:before {
 
 .books{
   display: flex;
+  width: 95%;
   flex-wrap: wrap;
 }
 
 .book-card{
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   flex-wrap: wrap;
-  
+  margin: auto;
+  background-color: lavender;
+  color: black;
+}
+
+a{
+  text-decoration:none;
+}
+a:hover{
+  color: #2196F3;
 }
 
 .book-card img{
@@ -146,7 +158,10 @@ input:checked + .slider:before {
 }
 
 .book-card p{
+  display: flex;
   margin: auto;
+  justify-content: center;
+  text-transform: lowercase;
 }
 
 .book-input{
