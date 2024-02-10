@@ -104,6 +104,7 @@ interface VolumeInfo {
   printType: string;
   categories: string[];
   imageLinks: ImageLinks;
+  infoLink: string;
 }
 
 

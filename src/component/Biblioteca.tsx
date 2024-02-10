@@ -41,6 +41,7 @@ const Biblioteca = () => {
       <div className="w3-container w3-center">
         <p>{book.volumeInfo.title}</p>
         <p>{book.volumeInfo.categories}</p>
+        <a href={book.volumeInfo.infoLink} target="_blank">More details</a>
       </div>
     </div>
 
