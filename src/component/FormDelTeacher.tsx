@@ -1,8 +1,10 @@
 import { useStore } from "../store/state"
 import { useNavigate } from "react-router-dom"
 import { fetchProfessor } from "../services/fetchApi";
+import { useState } from "react";
 
 const FormDelTeacher = () => {
+  const [error, setError] = useState<string>('')
 
   const navigate = useNavigate();
 
@@ -20,9 +22,19 @@ const FormDelTeacher = () => {
         'Content-Type': 'application/json',
       }
     }
-    const result = await fetchProfessor(headers, id)
-    if(result) navigate('/');
+    const { error, message } = await fetchProfessor(headers, id)
+    if(message) navigate('/');
+    if(error) setError(error);
   };
+
+  const alert = () => {
+    return (
+      <div className="w3-panel w3-yellow">
+        <h3>Warning!</h3>
+        <p>{error}</p>
+      </div>
+    )
+  }
 
   const resultTeachers = teacher.length && teacher.length > 0 ? teacher.map(item => (
     <div id="teacher-del" className="w3-container w3-border w3-large" key={item.id}>
@@ -35,6 +47,7 @@ const FormDelTeacher = () => {
   return (
     <>
       <div className="del-teacher">
+        {error.length ? alert() : null}
         {resultTeachers ? resultTeachers : <div>No registered teacher.</div>}
       </div>
     </>
