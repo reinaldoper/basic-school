@@ -30,7 +30,7 @@ const FormProfessores = () => {
     }
 
     if (verifyVariables()) {
-      await fetchProfessor(headers)
+      await fetchProfessor(headers, null)
       enviaTeacher();
       reset();
       setError(false);
@@ -49,7 +49,7 @@ const FormProfessores = () => {
         'Content-Type': 'application/json',
       }
     }
-    const listTeacher = await fetchProfessor(headersGet)
+    const listTeacher = await fetchProfessor(headersGet, null)
     teacher(listTeacher.message);
   };
 
