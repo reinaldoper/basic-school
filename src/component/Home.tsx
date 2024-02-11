@@ -1,10 +1,12 @@
 import '../styles/home.css';
 import school from '../assets/escola-2.webp'
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchDiretor, fetchProfessor, fetchAluno } from '../services/fetchApi';
 import { useStore } from "../store/state";
 import { User } from '../Types/TTypes';
+import Button from './Button';
+import ButtonHome from './ButtonHome';
 
 
 const Home = () => {
@@ -69,53 +71,9 @@ const Home = () => {
   add(diretor);
 
 
-
-  const navigate = useNavigate();
   const location = useLocation();
 
   const local = location.pathname;
-
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const name = event.currentTarget.name;
-
-    switch (name) {
-      case "/":
-        router(name)
-        break;
-      case "/students":
-        router(name)
-        break;
-      case "/teacher":
-        router(name)
-        break;
-      case "/manager":
-        router(name)
-        break;
-      case "/about":
-        router(name)
-        break;
-      case "/login":
-        router(name)
-        break;
-      case "/notes":
-        router(name)
-        break;
-      case "/library":
-        router(name)
-        break;
-      case "/teacher/del":
-        router(name)
-        break;
-
-      default:
-        break;
-    }
-  };
-  
-  const router = (url: string) => {
-    navigate(url);
-  };
 
   const handleLogar = () => {
     logout();
@@ -128,7 +86,7 @@ const Home = () => {
 
   const logarUser = useStore((state) => state.userLogar);
 
-  
+
 
   return (
     <>
@@ -140,18 +98,18 @@ const Home = () => {
       </div>
       <div className='container-home'>
         <div className='w3-container w3-white'>
-          <button type="button" name='/' className={`w3-button w3-large fa fa-home ${local === '/' ? 'active' : null}`} onClick={handleClick}>Inicio</button>
-          <button type="button" name='/students' className={`w3-button ${local === '/students' ? 'active' : null}`} onClick={handleClick}>Listar alunos</button>
-          <button type="button" name='/teacher' className={`w3-button ${local === '/teacher' ? 'active' : null}`} onClick={handleClick}>Professores</button>
-          <button type="button" name='/manager' className={`w3-button ${local === '/manager' ? 'active' : null}`} onClick={handleClick}>Diretor</button>
-          <button type="button" name='/about' className={`w3-button ${local === '/about' ? 'active' : null}`} onClick={handleClick}>Sobre nós</button>
-          <button type="button" name='/library' className={`w3-button ${local === '/library' ? 'active' : null}`} onClick={handleClick}>Livraria</button>
-          {admin.length && logar && admin[0].role === 'ADMIN' ? <button type="button" name='/notes' className={`w3-button ${local === '/notes' ? 'active' : null}`} onClick={handleClick}>Notas</button>
+          <ButtonHome local={local} variable='/' name='Home' />
+          <Button local={local} variable='/students' name='Listar alunos' />
+          <Button local={local} variable='/teacher' name='Professores' />
+          <Button local={local} variable='/manager' name='Diretor' />
+          <Button local={local} variable='/about' name='Sobre nós' />
+          <Button local={local} variable='/library' name='Livraria' />
+          {admin.length && logar && admin[0].role === 'ADMIN' ? <Button local={local} variable='/notes' name='Notas' />
             : null}
-          {!logar && logarUser ? <button type="button" name='/login' className={`w3-button ${local === '/login' ? 'active' : null}`} onClick={handleClick}>Login</button>
+          {!logar && logarUser ? <Button local={local} variable='/login' name='Login' />
             : null}
           <button type="button" className='w3-button' onClick={handleLogar}>Logout</button>
-          { dir && <button type="button" name='/teacher/del' className={`w3-button ${local === '/teacher/del' ? 'active' : null}`} onClick={handleClick}>DelTeacher</button>}
+          {dir && <Button local={local} variable='/teacher/del' name='DelTeacher' />}
           <li className="w3-large"><i className="fa fa-user"></i> {admin.length && logar ? admin[0].nome : logUser.length && !logar && !logarUser ? logUser[0].nome : userLogedIn.length && logar ? userLogedIn[0].nome : 'user-login'}</li>
         </div>
       </div>
