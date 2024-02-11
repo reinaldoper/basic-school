@@ -5,10 +5,16 @@ const URL_NOTAS = "https://escola-prisma.vercel.app/api/notas"
 const URL_BOOK = "https://www.googleapis.com/books/v1/volumes?q="
 
 
-export const fetchProfessor = async (options: RequestInit) => {
-  const response = await fetch(URL_PROFESSOR, options);
-  const data = await response.json();
-  return data;
+export const fetchProfessor = async (options: RequestInit, id: number | null) => {
+  if (!id) {
+    const response = await fetch(URL_PROFESSOR, options);
+    const data = await response.json();
+    return data;
+  } else {
+    const response = await fetch(`${URL_PROFESSOR}/${id}`, options);
+    const data = await response.json();
+    return data;
+  }
 }
 
 export const fetchDiretor = async (options: RequestInit, id: number | null) => {

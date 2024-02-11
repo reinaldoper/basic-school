@@ -42,7 +42,7 @@ const Home = () => {
       setDiretor(result.message);
 
 
-      const list = await fetchProfessor(headers);
+      const list = await fetchProfessor(headers, null);
       teacher(list.message)
     };
     all();

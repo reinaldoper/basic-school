@@ -151,6 +151,19 @@ a:hover{
   color: #2196F3;
 }
 
+.del-teacher{
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+}
+.w3-left-align{
+  margin-right: 20px;
+}
+
+.w3-right-align{
+  margin-left: 10px;
+}
+
 .book-card img{
   max-width: 50%;
   height: 50%;
@@ -170,4 +183,23 @@ a:hover{
   justify-content: center;
   margin: auto;
   margin-top: 10px;
+}
+
+#teacher-del{
+  margin-bottom: 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+#button-del-teacher{
+  position: absolute;
+  right: 0;
+  height: 100%;
+  border-radius: 0 5px 5px 0;
+  width: 10%;
+  cursor: pointer;
+}
+
+#button-del-teacher:hover{
+  background-color: #f3212c;
 }
