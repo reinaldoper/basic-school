@@ -47,26 +47,36 @@ const ListProfessores = () => {
     if (selectedTeacherId !== null) {
       const result = paginatedData.find((teacher) => teacher.id === selectedTeacherId);
 
-      return result?.alunos?.map((student) => (
-        <ol id="w3-ul" className="w3-container w3-animate-top">
-          <li id="teacher-name">{student.nome}</li>
-          <li id="list-between">email: {student.email}</li>
-          <li>
-            <button type="button" className="fa fa-close search" onClick={closeModal}></button>
-          </li>
-        </ol>
-      ));
-
-
+      // Verifique se há estudantes relacionados ao professor
+      if (result?.alunos && result.alunos.length > 0) {
+        return result.alunos.map((student) => (
+          <ol id="w3-ul" className="w3-container w3-animate-top" key={student.id}>
+            <li id="teacher-name">{student.nome}</li>
+            <li id="list-between">email: {student.email}</li>
+            <li>
+              <button type="button" className="fa fa-close search" onClick={closeModal}></button>
+            </li>
+          </ol>
+        ));
+      }
     }
-    return null;
+
+    return (
+      <ol id="w3-ul" className="w3-container w3-animate-top">
+        <li id="list-between">Não há alunos cadastrados.</li>
+        <li>
+          <button type="button" className="fa fa-close search" onClick={closeModal}></button>
+        </li>
+      </ol>
+    );
   };
+
 
   const listTeacher = paginatedData.length && paginatedData.map((teacher) => (
     <ol key={teacher.id} id="w3-ul" className="w3-container w3-animate-top">
       <li id="teacher-name">Prf(a): {teacher.nome}</li>
       <li id="list-between">Disciplina: {teacher.disciplina}</li>
-      
+
       <li>
         <button type="button" className="fa fa-search search" onClick={() => handleTeacherClick(teacher.id)}></button>
       </li>
@@ -78,18 +88,18 @@ const ListProfessores = () => {
       <div className="render-teacher">
         <h2 className="w3-cursive">{listTeacher && !modalIsOpen ? 'Lista de professores:' : 'Aluno(a)s:'}</h2>
         {listTeacher && !modalIsOpen ? <>{listTeacher}</> : <>{renderTeacherDetails()}</>}
-        {totalItemsCount > itemsPerPage && !render ? 
-        <div className="pagination">
-          <Pagination
-            itemClass='pagination'
-            activePage={activePage}
-            itemsCountPerPage={itemsPerPage}
-            totalItemsCount={totalItemsCount}
-            pageRangeDisplayed={pageRangeDisplayed}
-            onChange={handlePageChange}
-          />
+        {totalItemsCount > itemsPerPage && !render ?
+          <div className="pagination">
+            <Pagination
+              itemClass='pagination'
+              activePage={activePage}
+              itemsCountPerPage={itemsPerPage}
+              totalItemsCount={totalItemsCount}
+              pageRangeDisplayed={pageRangeDisplayed}
+              onChange={handlePageChange}
+            />
 
-        </div> : null}
+          </div> : null}
       </div>
     </>
   );
