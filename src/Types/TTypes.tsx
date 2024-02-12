@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface IRender {
   id: number;
 }
@@ -146,4 +148,8 @@ export interface Book {
   saleInfo: SaleInfo;
   accessInfo: AccessInfo;
   searchInfo: SearchInfo;
+}
+
+export interface NavbarProps {
+  children: ReactNode;
 }
