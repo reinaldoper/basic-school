@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useStore } from "../store/state";
 import Pagination from 'react-js-pagination';
+import Stats from "../utils/Stats";
 
 const ListAlunos = () => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const [selectedStudentId, setSelectedStudentId] = useState<number | null>(null);
   const [render, setRender] = useState<boolean>(false);
 
-  const listAluno = useStore((state) => state.aluno)
+  const { listAluno } = Stats();
 
   const [activePage, setActivePage] = useState(1);
   const itemsPerPage = 4;

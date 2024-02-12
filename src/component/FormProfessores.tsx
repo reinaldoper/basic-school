@@ -1,7 +1,7 @@
 import '../styles/home.css';
 import { useState } from 'react';
 import { fetchProfessor } from '../services/fetchApi';
-import { useStore } from "../store/state";
+import Stats from '../utils/Stats';
 
 
 const FormProfessores = () => {
@@ -10,12 +10,8 @@ const FormProfessores = () => {
   const [disciplina, setDisciplina] = useState<string>('')
   const [error, setError] = useState<boolean>(false)
 
-  const teacher = useStore((state) => state.setDisciplina)
-  const logado = useStore((state) => state.logar)
+  const { teacher, logar, dir } = Stats();
 
-  const dir = useStore((state) => state.dir)
-
-  
   const handleClick = async () => {
     const headers: RequestInit = {
       method: 'POST',
@@ -94,7 +90,7 @@ const FormProfessores = () => {
 
   return (
     <>
-      {logado && dir ? <div className="w3-container input-card">
+      {logar && dir ? <div className="w3-container input-card">
         {error && alert()}
         <h2>Cadastrar professor:</h2>
 

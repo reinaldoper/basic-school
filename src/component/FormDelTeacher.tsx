@@ -1,16 +1,14 @@
-import { useStore } from "../store/state"
 import { useNavigate } from "react-router-dom"
 import { fetchProfessor } from "../services/fetchApi";
 import { useState } from "react";
+import Stats from "../utils/Stats";
 
 const FormDelTeacher = () => {
   const [error, setError] = useState<string>('')
 
   const navigate = useNavigate();
 
-  const dir = useStore(state => state.dir)
-
-  const teacher = useStore(state => state.disciplina)
+  const { dir, teacherDiscipline } = Stats();
 
 
   if (!dir) navigate('/');
@@ -36,7 +34,7 @@ const FormDelTeacher = () => {
     )
   }
 
-  const resultTeachers = teacher.length && teacher.length > 0 ? teacher.map(item => (
+  const resultTeachers = teacherDiscipline.length && teacherDiscipline.length > 0 ? teacherDiscipline.map(item => (
     <div id="teacher-del" className="w3-container w3-border w3-large" key={item.id}>
       <div className="w3-left-align"><p>{item.nome}</p></div>
       <div className="w3-right-align"><p>{item.disciplina}</p></div>

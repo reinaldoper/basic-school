@@ -1,7 +1,6 @@
-
-import { useStore } from "../store/state";
 import { useState } from "react";
 import { fetchAluno } from "../services/fetchApi"
+import Stats from "../utils/Stats";
 
 const FormAlunos = () => {
 
@@ -11,11 +10,7 @@ const FormAlunos = () => {
   const [teacherId, setTeacherId] = useState<string>('')
   const [error, setError] = useState<boolean>(false)
 
-  const setAlunos = useStore((state) => state.setAlunos)
-  const logado = useStore((state) => state.logar)
-  const listTeacher = useStore((state) => state.disciplina)
-
-  const dir = useStore((state) => state.dir)
+  const { listAlunos, logar, teacherDiscipline, dir } = Stats();
 
 
   const handleClick = async () => {
@@ -55,7 +50,7 @@ const FormAlunos = () => {
       }
     }
     const listStudents = await fetchAluno(headersGet)
-    setAlunos(listStudents.message)
+    listAlunos(listStudents.message)
   };
 
 
@@ -96,7 +91,7 @@ const FormAlunos = () => {
 
   return (
     <>
-      {logado && !dir ? <div className="w3-container input-card">
+      {logar && !dir ? <div className="w3-container input-card">
         {error && alert()}
         <h2>Cadastrar aluno:</h2>
 
@@ -117,7 +112,7 @@ const FormAlunos = () => {
               <label>Idade</label></p>
             <p>
               <select value={teacherId} onChange={e => setTeacherId(e.target.value)}>
-                {listTeacher.map((teacher) => (
+                {teacherDiscipline.map((teacher) => (
                   <option key={teacher.id} value={teacher.id}>
                     {teacher.nome}
                   </option>

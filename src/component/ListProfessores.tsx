@@ -1,7 +1,7 @@
-import { useStore } from "../store/state";
 import { useState } from "react";
 import '../styles/home.css'
 import Pagination from 'react-js-pagination';
+import Stats from "../utils/Stats";
 
 
 const ListProfessores = () => {
@@ -9,11 +9,11 @@ const ListProfessores = () => {
   const [selectedTeacherId, setSelectedTeacherId] = useState<number | null>(null);
   const [render, setRender] = useState<boolean>(false);
 
-  const teacherResult = useStore((state) => state.disciplina);
+  const { teacherDiscipline } = Stats();
 
   const [activePage, setActivePage] = useState(1);
   const itemsPerPage = 4;
-  const totalItemsCount = teacherResult.length;
+  const totalItemsCount = teacherDiscipline.length;
   const pageRangeDisplayed = 2;
 
 
@@ -22,7 +22,7 @@ const ListProfessores = () => {
     setActivePage(pageNumber);
   };
 
-  const sortedData = teacherResult.sort((a, b) =>
+  const sortedData = teacherDiscipline.sort((a, b) =>
     a.nome.toLowerCase().localeCompare(b.nome.toLowerCase())
   );
 
