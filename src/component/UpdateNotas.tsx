@@ -1,7 +1,7 @@
 import '../styles/home.css'
 import { fetchNotas, fetchAluno } from "../services/fetchApi";
 import { useState } from "react";
-import { useStore } from "../store/state";
+import Stats from '../utils/Stats';
 
 
 const UpdateNotas = () => {
@@ -10,19 +10,10 @@ const UpdateNotas = () => {
   const [semestre, setSemestre] = useState<string>('')
   const [log, setLog] = useState<boolean>(false)
   const [id, setId] = useState<number>()
- 
-  
-  const setAlunos = useStore((state) => state.setAlunos)
 
-  const logado = useStore((state) => state.logar)
+  const { listAlunos, logar, listAluno, admin } = Stats();
 
-  const aluno = useStore((state) => state.aluno)
-
-
-
-  const admin = useStore((state) => state.admin)
-
-  const newNota = aluno.filter(nota => nota.professor.nome === admin[0].nome)
+  const newNota = listAluno.filter(nota => nota.professor.nome === admin[0].nome)
   
 
   const handleStudentClick = (id: number) => {
@@ -73,7 +64,7 @@ const UpdateNotas = () => {
         }
       }
       const listStudents = await fetchAluno(headersGet)
-      setAlunos(listStudents.message)
+      listAlunos(listStudents.message)
     } else {
       reset();
       setError(true);
@@ -110,7 +101,7 @@ const UpdateNotas = () => {
         {updateAluno}
       </div>
 
-      {logado && newNota.length && log ? <div id='container-notes'>
+      {logar && newNota.length && log ? <div id='container-notes'>
         <div className="w3-container input-card">
           {error && alert()}
           <h2>Atualizar nota:</h2>
