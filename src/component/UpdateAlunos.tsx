@@ -1,6 +1,6 @@
-import { useStore } from "../store/state";
 import { useState } from "react";
 import { fetchAluno, fetchAlunoId } from "../services/fetchApi"
+import Stats from "../utils/Stats";
 
 const UpdateAlunos = () => {
 
@@ -8,18 +8,11 @@ const UpdateAlunos = () => {
   const [teacherId, setTeacherId] = useState<string>('')
   const [error, setError] = useState<boolean>(false)
 
-  const setAlunos = useStore((state) => state.setAlunos)
-  const logado = useStore((state) => state.logar)
-  const listTeacher = useStore((state) => state.disciplina)
-
-  const aluno = useStore((state) => state.aluno)
-
-  const dir = useStore((state) => state.dir)
-
+  const { listAlunos, logar, dir, teacherDiscipline, listAluno } = Stats();
 
   const handleClick = async () => {
     const idProfessor = Number(teacherId)
-    const idAluno = aluno.filter((aluno) => aluno.nome === nome)
+    const idAluno = listAluno.filter((aluno) => aluno.nome === nome)
     const headers: RequestInit = {
       method: 'PUT',
       headers: {
@@ -52,7 +45,7 @@ const UpdateAlunos = () => {
       }
     }
     const listStudents = await fetchAluno(headersGet)
-    setAlunos(listStudents.message)
+    listAlunos(listStudents.message)
   };
 
 
@@ -91,7 +84,7 @@ const UpdateAlunos = () => {
 
   return (
     <>
-      {logado && !dir ? <div className="w3-container input-card">
+      {logar && !dir ? <div className="w3-container input-card">
         {error && alert()}
         <h2>Atualizar aluno:</h2>
 
@@ -103,7 +96,7 @@ const UpdateAlunos = () => {
           <form className="w3-container w3-green">
             <p>
             <select value={nome} onChange={e => setNome(e.target.value)}>
-                {aluno.map((student) => (
+                {listAluno.map((student) => (
                   <option key={student.id} value={student.nome}>
                     {student.nome}
                   </option>
@@ -113,7 +106,7 @@ const UpdateAlunos = () => {
             <hr />
             <p>
               <select value={teacherId} onChange={e => setTeacherId(e.target.value)}>
-                {listTeacher.map((teacher) => (
+                {teacherDiscipline.map((teacher) => (
                   <option key={teacher.id} value={teacher.id}>
                     {teacher.nome}
                   </option>
