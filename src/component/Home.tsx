@@ -3,35 +3,28 @@ import school from '../assets/escola-2.webp'
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchDiretor, fetchProfessor, fetchAluno } from '../services/fetchApi';
-import { useStore } from "../store/state";
 import { User } from '../Types/TTypes';
 import Button from './Button';
 import ButtonHome from './ButtonHome';
 import Navbar from './Navbar';
-
+import Stats from '../utils/Stats';
 
 const Home = () => {
   const [diretor, setDiretor] = useState<User[]>([]);
 
-  const teacher = useStore((state) => state.setDisciplina)
-
-  const admin = useStore((state) => state.admin)
-
-  const setAdmin = useStore((state) => state.setAdmin)
-
-  const logout = useStore((state) => state.resetLogar)
-
-  const listAlunos = useStore((state) => state.setAlunos)
-
-  const logar = useStore((state) => state.logar)
-
-  const logUser = useStore((state) => state.logUser)
-
-  const setUserLogar = useStore((state) => state.setUserLogar);
-
-  const resetDiretor = useStore((state) => state.resetDiretor);
-
-  const dir = useStore((state) => state.dir)
+  const { dir,
+    resetDiretor,
+    setAdmin,
+    setUserLogar,
+    logUser,
+    logar,
+    admin,
+    listAlunos,
+    logout,
+    teacher,
+    add,
+    logarUser,
+    userLogedIn } = Stats();
 
   useEffect(() => {
     const all = async () => {
@@ -68,7 +61,6 @@ const Home = () => {
 
   }, [listAlunos])
 
-  const add = useStore((state) => state.setAddUser);
   add(diretor);
 
 
@@ -82,11 +74,6 @@ const Home = () => {
     resetDiretor();
     setAdmin([]);
   };
-
-  const userLogedIn = useStore((state) => state.user);
-
-  const logarUser = useStore((state) => state.userLogar);
-
 
 
   return (
