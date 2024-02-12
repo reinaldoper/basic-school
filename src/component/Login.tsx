@@ -1,6 +1,6 @@
-import { useStore } from "../store/state";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Stats from "../utils/Stats";
 
 
 const Login = () => {
@@ -8,23 +8,9 @@ const Login = () => {
   const [email, setEmail] = useState<string>('');
   const [error, setError] = useState<boolean>(false);
 
-  const logar = useStore((state) => state.insertLogar)
-
-  const logout = useStore((state) => state.resetLogar)
-
-  const techer = useStore((state) => state.disciplina)
-
-  const admin = useStore((state) => state.setAdmin)
-
-  const user = useStore((state) => state.setLogUser)
-
-  const listAluno = useStore((state) => state.aluno)
-
-  const userLogan = useStore((state) => state.user)
-
-  const resetLogar = useStore((state) => state.resetUserLogar)
-
-  const setDiretor = useStore((state) => state.setDiretor)
+  const { insertLogar, logout, teacherDiscipline,
+    setAdmin, user, listAluno, userLogedIn,
+    resetLogar, setDiretor } = Stats();
 
   const navigate = useNavigate();
 
@@ -39,18 +25,18 @@ const Login = () => {
 
 
   const handleSubmit = () => {
-    
-    const ability = techer.filter(e => e.email === email)
-    
-    
+
+    const ability = teacherDiscipline.filter(e => e.email === email)
+
+
     if (ability[0]?.role === "ADMIN" && ability[0].nome === name && ability[0].email === email) {
       setError(false);
-      logar();
-      admin(ability);
+      insertLogar();
+      setAdmin(ability);
       navigate('/')
-    } else if(userLogan[0].nome === name && userLogan[0].role === "DIR" && userLogan[0].email === email) {
+    } else if (userLogedIn[0].nome === name && userLogedIn[0].role === "DIR" && userLogedIn[0].email === email) {
       setError(false);
-      logar();
+      insertLogar();
       setDiretor();
       navigate('/')
     } else if (listAluno[0]?.role === "USER" && listAluno[0].nome === name && listAluno[0].email === email) {
