@@ -1,4 +1,3 @@
-
 import { useStore } from "../store/state";
 import { useState } from "react";
 import { fetchAluno, fetchAlunoId } from "../services/fetchApi"

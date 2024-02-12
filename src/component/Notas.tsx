@@ -1,28 +1,16 @@
-
 import { fetchNotas } from "../services/fetchApi";
 import { useState } from "react";
-import { useStore } from "../store/state";
+import Stats from "../utils/Stats";
 
 const Notas = () => {
   const [nome, setNome] = useState<string>('')
   const [nota, setNota] = useState<number>(5)
   const [error, setError] = useState<boolean>(false)
   const [semestre, setSemestre] = useState<string>('')
-  console.log(nota);
+  
+  const { logar, listAluno, admin } = Stats();
 
-
-  console.log(nome);
-
-
-  const logado = useStore((state) => state.logar)
-
-  const aluno = useStore((state) => state.aluno)
-
-
-
-  const admin = useStore((state) => state.admin)
-
-  const newNota = aluno.filter(nota => nota.professor.nome === admin[0].nome)
+  const newNota = listAluno.filter(nota => nota.professor.nome === admin[0].nome)
 
 
   const handleClick = async () => {
@@ -84,7 +72,7 @@ const Notas = () => {
 
   return (
     <>
-      {logado && newNota.length ? <div id='container-notes'>
+      {logar && newNota.length ? <div id='container-notes'>
         <div className="w3-container input-card">
           {error && alert()}
           <h2>Cadastrar nota:</h2>
