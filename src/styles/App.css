@@ -101,6 +101,12 @@ input:checked + .slider:before {
   bottom: 0;
   cursor: pointer;
 }
+.close {
+  height: 100%;
+  margin-right: 10px;
+  background-color: #f3212c;
+  cursor: pointer;
+}
 
 .search:focus{
   position: absolute;

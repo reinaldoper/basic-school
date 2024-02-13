@@ -8,6 +8,7 @@ import LogiIn from "../pages/LogiIn";
 import Notes from "../pages/Notes";
 import Library from "../pages/Library";
 import DeleteTeacher from "../pages/DeleteTeacher";
+import FormDelStudent from "../component/forms/FormDelStudent";
 
 
 const Router = () => {
@@ -23,6 +24,7 @@ const Router = () => {
         <Route path="/notes" element={<Notes />} />
         <Route path="/library" element={<Library />} />
         <Route path="/teacher/del" element={<DeleteTeacher />} />
+        <Route path="/student/del/:id" element={<FormDelStudent />} />
       </Routes>
     </>
   )

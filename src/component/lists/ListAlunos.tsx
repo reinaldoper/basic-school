@@ -1,14 +1,18 @@
 import { useState } from "react";
 import Pagination from 'react-js-pagination';
 import Stats from "../../utils/Stats";
+import { useNavigate } from 'react-router-dom';
+
 
 const ListAlunos = () => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const [selectedStudentId, setSelectedStudentId] = useState<number | null>(null);
   const [render, setRender] = useState<boolean>(false);
 
-  const { listAluno } = Stats();
+  const navigate = useNavigate()
 
+  const { listAluno, logar } = Stats();
+  
   const [activePage, setActivePage] = useState(1);
   const itemsPerPage = 4;
   const totalItemsCount = listAluno.length;
@@ -42,6 +46,10 @@ const ListAlunos = () => {
     setSelectedStudentId(null);
   };
 
+  const delStudent = (id: number) => {
+    navigate('/student/del/' + id);
+  };
+
   const renderStudentDetails = () => {
     if (selectedStudentId !== null) {
       const result = paginatedData.find((student) => student.id === selectedStudentId);
@@ -51,6 +59,7 @@ const ListAlunos = () => {
           <li id="list-between">Semestre: {aluno.semestre === null ? null : aluno.semestre}</li>
           <li id="list-between">Nota: {aluno.valor}</li>
           <li>
+            {logar && <button type="button" className="fa fa-trash close" onClick={() => delStudent(result.id)}></button>}
             <button type="button" className="fa fa-close search" onClick={closeModal}></button>
           </li>
         </ol>
