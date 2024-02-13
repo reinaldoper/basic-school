@@ -25,6 +25,8 @@ git clone git@github.com:reinaldoper/school.git
 escola-front/
 |-- src/
 |   |-- assets/
+|   |-- buttons/
+|   |-- utils/
 |   |-- component/
 |   |-- pages/
 |   |-- services/
@@ -45,8 +47,10 @@ escola-front/
 - services/: Serviços para integração com API ou lógica de negócios.
 - styles/: Estilos globais ou compartilhados.
 - Routes/: Rotas da aplicação.
-- store/: Guarda 0 estado geral da aplicação.
+- store/: Guarda a configuração do estado geral da aplicação.
 - Types/: Todas as tipagens da aplicação.
+- buttons/: Alguns buttons da aplicação
+- utils/: Todos os estados utilizados na aplicação.
 - main.tsx: Ponto de partida da aplicação.
 - tsconfig.json: Configurações TypeScript.
 - package.json: Dependências e scripts do projeto.
