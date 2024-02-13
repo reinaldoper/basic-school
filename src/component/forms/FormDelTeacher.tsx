@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
-import { fetchProfessor } from "../services/fetchApi";
+import { fetchProfessor } from "../../services/fetchApi";
 import { useState } from "react";
-import Stats from "../utils/Stats";
+import Stats from "../../utils/Stats";
 
 const FormDelTeacher = () => {
   const [error, setError] = useState<string>('')

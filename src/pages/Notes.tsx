@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useStore } from "../store/state";
 import { useState } from "react";
 import '../styles/home.css'
-import UpdateNotas from "../component/UpdateNotas";
+import UpdateNotas from "../component/updates/UpdateNotas";
 
 
 

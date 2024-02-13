@@ -1,7 +1,7 @@
 import Home from "../component/Home"
 import '../styles/home.css';
-import FormProfessores from "../component/FormProfessores";
-import ListProfessores from "../component/ListProfessores";
+import FormProfessores from "../component/forms/FormProfessores";
+import ListProfessores from "../component/lists/ListProfessores";
 import { useStore } from "../store/state";
 
 

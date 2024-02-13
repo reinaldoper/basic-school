@@ -1,32 +1,37 @@
 import { useState } from "react";
-import { fetchAluno, fetchAlunoId } from "../services/fetchApi"
-import Stats from "../utils/Stats";
-import ButtonUpdate from "../buttons/ButtonUpdate";
+import { fetchAluno } from "../../services/fetchApi"
+import Stats from "../../utils/Stats";
+import ButtonUpdate from '../../buttons/ButtonUpdate';
 
-const UpdateAlunos = () => {
+const FormAlunos = () => {
 
+  const [email, setEmail] = useState<string>('')
   const [nome, setNome] = useState<string>('')
+  const [idade, setIdade] = useState<string>('')
   const [teacherId, setTeacherId] = useState<string>('')
   const [error, setError] = useState<boolean>(false)
 
-  const { listAlunos, logar, dir, teacherDiscipline, listAluno } = Stats();
+  const { listAlunos, logar, teacherDiscipline, dir } = Stats();
+
 
   const handleClick = async () => {
+    const numberIdade = Number(idade)
     const idProfessor = Number(teacherId)
-    const idAluno = listAluno.filter((aluno) => aluno.nome === nome)
     const headers: RequestInit = {
-      method: 'PUT',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         nome,
+        email,
+        idade: numberIdade,
         professorId: idProfessor
       }),
     }
 
     if (verifyVariables()) {
-      await fetchAlunoId(headers, idAluno[0].id)
+      await fetchAluno(headers)
       enviaStudent()
       reset();
       setError(false);
@@ -61,7 +66,7 @@ const UpdateAlunos = () => {
   }
 
   const verifyVariables = () => {
-    if (nome.length === 0 || teacherId.length === 0) {
+    if (email.length === 0 || nome.length === 0 || idade.length === 0 || teacherId.length === 0) {
       return false
     } else {
       return true
@@ -70,7 +75,9 @@ const UpdateAlunos = () => {
 
 
   const reset = () => {
+    setEmail('')
     setNome('')
+    setIdade('')
     setTeacherId('')
   };
 
@@ -87,7 +94,7 @@ const UpdateAlunos = () => {
     <>
       {logar && !dir ? <div className="w3-container input-card">
         {error && alert()}
-        <h2>Atualizar aluno:</h2>
+        <h2>Cadastrar aluno:</h2>
 
         <div className="w3-card-4">
           <div className="w3-container w3-green">
@@ -96,15 +103,14 @@ const UpdateAlunos = () => {
 
           <form className="w3-container w3-green">
             <p>
-            <select value={nome} onChange={e => setNome(e.target.value)}>
-                {listAluno.map((student) => (
-                  <option key={student.id} value={student.nome}>
-                    {student.nome}
-                  </option>
-                ))}
-              </select>
-            </p>
-            <hr />
+              <input className="w3-input" type="text" value={nome} onChange={e => setNome(e.target.value)} />
+              <label>Nome</label></p>
+            <p>
+              <input className="w3-input" type="text" value={email} onChange={e => setEmail(e.target.value)} />
+              <label>Email</label></p>
+            <p>
+              <input className="w3-input" type="text" value={idade} onChange={e => setIdade(e.target.value)} />
+              <label>Idade</label></p>
             <p>
               <select value={teacherId} onChange={e => setTeacherId(e.target.value)}>
                 {teacherDiscipline.map((teacher) => (
@@ -116,7 +122,7 @@ const UpdateAlunos = () => {
               <br />
               <label>professor</label></p>
             <p>
-              <ButtonUpdate onClick={handleClick} name="Salvar" />
+              <ButtonUpdate onClick={handleClick} name='Salvar' />
             </p>
           </form>
         </div>
@@ -127,4 +133,4 @@ const UpdateAlunos = () => {
   )
 }
 
-export default UpdateAlunos
+export default FormAlunos

@@ -1,8 +1,8 @@
-import '../styles/home.css'
-import { fetchNotas, fetchAluno } from "../services/fetchApi";
+import '../../styles/home.css'
+import { fetchNotas, fetchAluno } from "../../services/fetchApi";
 import { useState } from "react";
-import Stats from '../utils/Stats';
-import ButtonUpdate from "../buttons/ButtonUpdate";
+import Stats from '../../utils/Stats';
+import ButtonUpdate from "../../buttons/ButtonUpdate";
 
 
 const UpdateNotas = () => {

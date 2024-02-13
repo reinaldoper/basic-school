@@ -1,7 +1,7 @@
 import { useState } from "react";
-import '../styles/home.css'
+import '../../styles/home.css'
 import Pagination from 'react-js-pagination';
-import Stats from "../utils/Stats";
+import Stats from "../../utils/Stats";
 
 
 const ListProfessores = () => {

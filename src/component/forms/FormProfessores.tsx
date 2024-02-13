@@ -1,7 +1,8 @@
-import '../styles/home.css';
+import '../../styles/home.css';
 import { useState } from 'react';
-import { fetchProfessor } from '../services/fetchApi';
-import Stats from '../utils/Stats';
+import { fetchProfessor } from '../../services/fetchApi';
+import Stats from '../../utils/Stats';
+import ButtonUpdate from '../../buttons/ButtonUpdate';
 
 
 const FormProfessores = () => {
@@ -36,7 +37,7 @@ const FormProfessores = () => {
     }
   };
 
-  
+
 
   const enviaTeacher = async () => {
     const headersGet: RequestInit = {
@@ -119,7 +120,7 @@ const FormProfessores = () => {
               </select>
               <label>Disciplina</label></p>
             <p>
-              <button type="button" onClick={handleClick} className="w3-btn w3-black">Salvar</button>
+              <ButtonUpdate onClick={handleClick} name='Salvar' />
             </p>
           </form>
         </div>

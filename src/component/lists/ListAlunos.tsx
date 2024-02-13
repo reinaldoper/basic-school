@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Pagination from 'react-js-pagination';
-import Stats from "../utils/Stats";
+import Stats from "../../utils/Stats";
 
 const ListAlunos = () => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);

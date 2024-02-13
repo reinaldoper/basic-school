@@ -1,11 +1,11 @@
 
 import Home from "../component/Home"
-import ListAlunos from "../component/ListAlunos";
-import FormAlunos from "../component/FormAlunos";
+import ListAlunos from "../component/lists/ListAlunos";
+import FormAlunos from "../component/forms/FormAlunos";
 import { useState } from "react";
 import '../styles/home.css';
 import { useStore } from "../store/state";
-import UpdateAlunos from "../component/UpdateAlunos";
+import UpdateAlunos from "../component/updates/UpdateAlunos";
 
 const Alunos = () => {
   const [toggle, setToggle] = useState<boolean>(false);

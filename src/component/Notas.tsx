@@ -1,13 +1,14 @@
 import { fetchNotas } from "../services/fetchApi";
 import { useState } from "react";
 import Stats from "../utils/Stats";
+import ButtonUpdate from "../buttons/ButtonUpdate";
 
 const Notas = () => {
   const [nome, setNome] = useState<string>('')
   const [nota, setNota] = useState<number>(5)
   const [error, setError] = useState<boolean>(false)
   const [semestre, setSemestre] = useState<string>('')
-  
+
   const { logar, listAluno, admin } = Stats();
 
   const newNota = listAluno.filter(nota => nota.professor.nome === admin[0].nome)
@@ -110,7 +111,7 @@ const Notas = () => {
                 <br />
                 <label>Nota</label></p>
               <p>
-                <button type="button" onClick={handleClick} className="w3-btn w3-black">Salvar</button>
+                <ButtonUpdate onClick={handleClick} name='Salvar' />
               </p>
             </form>
           </div>
