@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Stats from "../utils/Stats";
+import ButtonForm from './buttons/ButtonForm';
 
 
 const Login = () => {
@@ -74,13 +75,7 @@ const Login = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-
-          <button className="w3-button w3-block w3-blue w3-round-large w3-section w3-padding"
-            type="button"
-            onClick={handleSubmit}
-          >
-            Entrar
-          </button>
+          <ButtonForm onClick={handleSubmit} name='Entrar' />
         </form>
       </div>
     </div>

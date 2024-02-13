@@ -153,3 +153,8 @@ export interface Book {
 export interface NavbarProps {
   children: ReactNode;
 }
+
+export interface ButtonFormProps {
+  onClick: () => void;
+  name: string;
+}

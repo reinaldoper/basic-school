@@ -3,6 +3,7 @@ import { useState } from "react"
 import { Book } from "../Types/TTypes"
 import '../styles/home.css'
 import Livro from '../assets/livro.jpg'
+import ButtonForm from "./buttons/ButtonForm"
 
 const Biblioteca = () => {
   const [books, setBooks] = useState<Book[]>([])
@@ -64,12 +65,7 @@ const Biblioteca = () => {
               onChange={e => setSearch(e.target.value)}
               required
             />
-            <button className="w3-button w3-block w3-blue w3-round-large w3-section w3-padding"
-              type="button"
-              onClick={handleClick}
-            >
-              Search
-            </button>
+            <ButtonForm onClick={handleClick} name="Search" />
           </form>
         </div>
       </div>
