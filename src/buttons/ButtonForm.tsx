@@ -1,4 +1,4 @@
-import { ButtonFormProps } from "../../Types/TTypes"
+import { ButtonFormProps } from "../Types/TTypes"
 
 const ButtonForm = ({ onClick, name }: ButtonFormProps ) => {
   return (

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Stats from "../utils/Stats";
-import ButtonForm from './buttons/ButtonForm';
+import ButtonForm from '../buttons/ButtonForm';
 
 
 const Login = () => {

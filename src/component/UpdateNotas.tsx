@@ -2,6 +2,7 @@ import '../styles/home.css'
 import { fetchNotas, fetchAluno } from "../services/fetchApi";
 import { useState } from "react";
 import Stats from '../utils/Stats';
+import ButtonUpdate from "../buttons/ButtonUpdate";
 
 
 const UpdateNotas = () => {
@@ -14,7 +15,7 @@ const UpdateNotas = () => {
   const { listAlunos, logar, listAluno, admin } = Stats();
 
   const newNota = listAluno.filter(nota => nota.professor.nome === admin[0].nome)
-  
+
 
   const handleStudentClick = (id: number) => {
     setId(id);
@@ -32,8 +33,8 @@ const UpdateNotas = () => {
       <li>Semestre: {nota.semestre === null ? null : nota.semestre}</li>
       <li>Nota: {nota.valor}</li>
       <li>
-            <button type="button" className="fa fa-search search" onClick={() => handleStudentClick(nota.id)}></button>
-          </li>
+        <button type="button" className="fa fa-search search" onClick={() => handleStudentClick(nota.id)}></button>
+      </li>
     </ol>
   )) : null
 
@@ -127,7 +128,7 @@ const UpdateNotas = () => {
                 <br />
                 <label>Nota</label></p>
               <p>
-                <button type="button" onClick={handleClick} className="w3-btn w3-black">Salvar</button>
+                <ButtonUpdate onClick={handleClick} name="Salvar" />
               </p>
             </form>
           </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { fetchAluno, fetchAlunoId } from "../services/fetchApi"
 import Stats from "../utils/Stats";
+import ButtonUpdate from "../buttons/ButtonUpdate";
 
 const UpdateAlunos = () => {
 
@@ -115,7 +116,7 @@ const UpdateAlunos = () => {
               <br />
               <label>professor</label></p>
             <p>
-              <button type="button" onClick={handleClick} className="w3-btn w3-black">Salvar</button>
+              <ButtonUpdate onClick={handleClick} name="Salvar" />
             </p>
           </form>
         </div>

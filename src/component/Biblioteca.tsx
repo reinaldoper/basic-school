@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Book } from "../Types/TTypes"
 import '../styles/home.css'
 import Livro from '../assets/livro.jpg'
-import ButtonForm from "./buttons/ButtonForm"
+import ButtonForm from "../buttons/ButtonForm"
 
 const Biblioteca = () => {
   const [books, setBooks] = useState<Book[]>([])

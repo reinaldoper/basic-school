@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Switch } from '../RouterSwitch';
+import { Switch } from '../component/RouterSwitch';
 
 const ButtonHome = ({ local, variable, name }: { local: string, variable: string, name: string }) => {
 

@@ -4,8 +4,8 @@ import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchDiretor, fetchProfessor, fetchAluno } from '../services/fetchApi';
 import { User } from '../Types/TTypes';
-import Button from './buttons/Button';
-import ButtonHome from './buttons/ButtonHome';
+import Button from '../buttons/Button';
+import ButtonHome from '../buttons/ButtonHome';
 import Navbar from './Navbar';
 import Stats from '../utils/Stats';
 
