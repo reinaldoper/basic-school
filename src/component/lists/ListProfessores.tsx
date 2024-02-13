@@ -88,6 +88,7 @@ const ListProfessores = () => {
       <div className="render-teacher">
         <h2 className="w3-cursive">{listTeacher && !modalIsOpen ? 'Lista de professores:' : 'Aluno(a)s:'}</h2>
         {listTeacher && !modalIsOpen ? <>{listTeacher}</> : <>{renderTeacherDetails()}</>}
+        {teacherDiscipline.length === 0 && <h1>Carregando...</h1>}
         {totalItemsCount > itemsPerPage && !render ?
           <div className="pagination">
             <Pagination

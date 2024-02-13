@@ -83,6 +83,7 @@ const ListAlunos = () => {
           <button type="button" className="fa fa-close" onClick={closeModal}></button>
         }</h2>
         {listAlunos && !modalIsOpen ? <>{listAlunos}</> : <>{renderStudentDetails()}</>}
+        {listAluno.length === 0 && <h1>Carregando...</h1>}
         {totalItemsCount > itemsPerPage && !render ?
           <div className="pagination">
             <Pagination
