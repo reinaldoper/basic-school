@@ -38,3 +38,15 @@ export const DirSection = () => {
     </p>
   )
 }
+
+
+export const SectionHome = () => {
+  return (
+    <section id="transform-world">
+      <div className='section-main w3-container w3-margin'>
+        <p className="w3-cursive">Vem com a gente transformar o mundo.</p>
+        <h2 className="w3-cursive">Aqui você encontra os melhores livros.</h2>
+      </div>
+    </section>
+  )
+}

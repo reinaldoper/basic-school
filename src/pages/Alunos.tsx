@@ -4,17 +4,13 @@ import ListAlunos from "../component/lists/ListAlunos";
 import FormAlunos from "../component/forms/FormAlunos";
 import { useState } from "react";
 import '../styles/home.css';
-import { useStore } from "../store/state";
 import UpdateAlunos from "../component/updates/UpdateAlunos";
+import Stats from "../utils/Stats";
 
 const Alunos = () => {
   const [toggle, setToggle] = useState<boolean>(false);
-  
-  const logout = useStore((state) => state.logar)
 
-  const admin = useStore((state) => state.admin)
-
- 
+  const { logar, admin } = Stats();
 
   const userRs = (): boolean => {
     if(admin.length && admin[0].role === 'ADMIN') {
@@ -28,7 +24,7 @@ const Alunos = () => {
   return (
     <>
       <Home />
-      {logout && userRs() ? <span className="update-toggle">
+      {logar && userRs() ? <span className="update-toggle">
         <span>{!toggle ? 'Cadastrar aluno': 'Atualizar aluno'}</span>
         <label className="switch">
           <input type="checkbox" checked={toggle} onChange={e => setToggle(e.target.checked)} />
@@ -36,8 +32,8 @@ const Alunos = () => {
         </label>
       </span>: null}
       
-      <section className={`${logout && userRs() ? 'list-professor' : 'logout'}`}>
-        { !toggle && logout && userRs() ?  <FormAlunos />: <UpdateAlunos /> }
+      <section className={`${logar && userRs() ? 'list-professor' : 'logout'}`}>
+        { !toggle && logar && userRs() ?  <FormAlunos />: <UpdateAlunos /> }
         <ListAlunos />
       </section>
       <hr />
