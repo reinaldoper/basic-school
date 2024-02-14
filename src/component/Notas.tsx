@@ -2,6 +2,7 @@ import { fetchNotas } from "../services/fetchApi";
 import { useState } from "react";
 import Stats from "../utils/Stats";
 import ButtonUpdate from "../buttons/ButtonUpdate";
+import { alertLogoutNotes, alert } from "../alerts/Alerts";
 
 const Notas = () => {
   const [nome, setNome] = useState<string>('')
@@ -38,16 +39,6 @@ const Notas = () => {
     }
   };
 
-
-  const alert = () => {
-    return (
-      <div className="w3-panel w3-red">
-        <h3>Danger!</h3>
-        <p>Campos inválidos ou algo deu errado na solicitação.</p>
-      </div>
-    )
-  }
-
   const verifyVariables = () => {
     if (nome.length === 0 || nota < 5 || semestre.length === 0) {
       return false
@@ -62,14 +53,6 @@ const Notas = () => {
     setSemestre('')
   };
 
-  const alertLogout = () => {
-    return (
-      <div className="w3-panel w3-yellow">
-        <h3>Warning!</h3>
-        <p>Nota já lançada.</p>
-      </div>
-    )
-  }
 
   return (
     <>
@@ -117,7 +100,7 @@ const Notas = () => {
           </div>
         </div>
       </div> : <div className="w3-container input-card w3-cursive">
-        <h2 className='w3-cursive'>{alertLogout()}</h2>
+        <h2 className='w3-cursive'>{alertLogoutNotes()}</h2>
       </div>}
     </>
   )

@@ -4,6 +4,7 @@ import { fetchProfessor } from '../../services/fetchApi';
 import Stats from '../../utils/Stats';
 import ButtonUpdate from '../../buttons/ButtonUpdate';
 import InputForm from '../../inputs/InputForm';
+import { alert, alertLogoutTeacher } from '../../alerts/Alerts';
 
 
 const FormProfessores = () => {
@@ -52,18 +53,6 @@ const FormProfessores = () => {
   };
 
 
-
-
-
-  const alert = () => {
-    return (
-      <div className="w3-panel w3-red">
-        <h3>Danger!</h3>
-        <p>Campos inválidos ou algo deu errado na solicitação.</p>
-      </div>
-    )
-  }
-
   const verifyVariables = () => {
     if (email.length === 0 || nome.length === 0 || disciplina.length === 0) {
       return false
@@ -78,17 +67,6 @@ const FormProfessores = () => {
     setNome('')
     setDisciplina('')
   };
-
-
-  const alertLogout = () => {
-    return (
-      <div className="w3-panel w3-yellow">
-        <h3>Warning!</h3>
-        <p>Entre com as credenciais corretas para cadastrar professores.</p>
-      </div>
-    )
-  }
-
 
   return (
     <>
@@ -126,7 +104,7 @@ const FormProfessores = () => {
           </form>
         </div>
       </div> : <div className="w3-container input-card w3-cursive">
-        <h2 className='w3-cursive'>{alertLogout()}</h2>
+        <h2 className='w3-cursive'>{alertLogoutTeacher()}</h2>
       </div>}
     </>
   )

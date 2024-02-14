@@ -3,6 +3,7 @@ import { fetchAluno } from "../../services/fetchApi"
 import Stats from "../../utils/Stats";
 import ButtonUpdate from '../../buttons/ButtonUpdate';
 import InputForm from "../../inputs/InputForm";
+import { alert, alertLogout } from "../../alerts/Alerts";
 
 const FormAlunos = () => {
 
@@ -56,16 +57,6 @@ const FormAlunos = () => {
   };
 
 
-
-  const alert = () => {
-    return (
-      <div className="w3-panel w3-red">
-        <h3>Danger!</h3>
-        <p>Campos inválidos ou algo deu errado na solicitação.</p>
-      </div>
-    )
-  }
-
   const verifyVariables = () => {
     if (email.length === 0 || nome.length === 0 || idade.length === 0 || teacherId.length === 0) {
       return false
@@ -82,14 +73,6 @@ const FormAlunos = () => {
     setTeacherId('')
   };
 
-  const alertLogout = () => {
-    return (
-      <div className="w3-panel w3-yellow">
-        <h3>Warning!</h3>
-        <p>Entre com as credenciais corretas para cadastrar alunos.</p>
-      </div>
-    )
-  }
 
   return (
     <>
