@@ -4,6 +4,7 @@ import { Book } from "../Types/TTypes"
 import '../styles/home.css'
 import Livro from '../assets/livro.jpg'
 import ButtonForm from "../buttons/ButtonForm"
+import InputLogin from "../inputs/InputLogin"
 
 const Biblioteca = () => {
   const [books, setBooks] = useState<Book[]>([])
@@ -30,7 +31,7 @@ const Biblioteca = () => {
     }
 
   };
- 
+
 
   const booksResults = books.length > 0 && books.map((book, index) => (
     <div className="w3-card-4 book-card" key={index}>
@@ -57,14 +58,8 @@ const Biblioteca = () => {
           <form className="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
             <h2 className="w3-center">Search</h2>
             <label className="w3-text-blue"><b>Search</b></label>
-            <input
-              className="w3-input w3-border w3-round-large"
-              type="text"
-              placeholder="Search"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-              required
-            />
+            <InputLogin onChange={(e) => setSearch(e.target.value)}
+              name={search} placeholder='Search' />
             <ButtonForm onClick={handleClick} name="Search" />
           </form>
         </div>

@@ -163,3 +163,9 @@ export interface InputFormProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   name: string;
 }
+
+export interface InputLoginProps {
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  name: string;
+  placeholder: string;
+}

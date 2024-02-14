@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Stats from "../utils/Stats";
 import ButtonForm from '../buttons/ButtonForm';
 import { alertLogin } from '../alerts/Alerts';
+import InputLogin from '../inputs/InputLogin';
 
 
 const Login = () => {
@@ -49,23 +50,11 @@ const Login = () => {
         <form className="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" onSubmit={handleSubmit}>
           <h2 className="w3-center">Login</h2>
           <label className="w3-text-blue"><b>Nome</b></label>
-          <input
-            className="w3-input w3-border w3-round-large"
-            type="text"
-            placeholder="Digite seu nome"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+          <InputLogin onChange={(e) => setName(e.target.value)}
+            name={name} placeholder='Digite seu nome' />
           <label className="w3-text-blue"><b>Email</b></label>
-          <input
-            className="w3-input w3-border w3-round-large"
-            type="email"
-            placeholder="Digite seu email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          <InputLogin onChange={(e) => setEmail(e.target.value)}
+            name={email} placeholder='Digite seu email' />
           <ButtonForm onClick={handleSubmit} name='Entrar' />
         </form>
       </div>
