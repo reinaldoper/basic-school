@@ -158,3 +158,8 @@ export interface ButtonFormProps {
   onClick: () => void;
   name: string;
 }
+
+export interface InputFormProps {
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  name: string;
+}

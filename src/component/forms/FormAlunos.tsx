@@ -2,6 +2,7 @@ import { useState } from "react";
 import { fetchAluno } from "../../services/fetchApi"
 import Stats from "../../utils/Stats";
 import ButtonUpdate from '../../buttons/ButtonUpdate';
+import InputForm from "../../inputs/InputForm";
 
 const FormAlunos = () => {
 
@@ -103,13 +104,13 @@ const FormAlunos = () => {
 
           <form className="w3-container w3-green">
             <p>
-              <input className="w3-input" type="text" value={nome} onChange={e => setNome(e.target.value)} />
+              <InputForm name={nome} onChange={e => setNome(e.target.value)} />
               <label>Nome</label></p>
             <p>
-              <input className="w3-input" type="text" value={email} onChange={e => setEmail(e.target.value)} />
+              <InputForm name={email} onChange={e => setEmail(e.target.value)} />
               <label>Email</label></p>
             <p>
-              <input className="w3-input" type="text" value={idade} onChange={e => setIdade(e.target.value)} />
+              <InputForm name={idade} onChange={e => setIdade(e.target.value)} />
               <label>Idade</label></p>
             <p>
               <select value={teacherId} onChange={e => setTeacherId(e.target.value)}>
