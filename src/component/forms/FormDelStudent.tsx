@@ -46,8 +46,14 @@ const FormDelStudent = () => {
       }
     }
     const { error, message } = await fetchAlunoId(headers, Number(id))
-    if (error) alert(error)
-    if (message) navigate('/')
+    if (error) {
+      alert(error)
+      navigate('/')
+    }
+    if (message) {
+      alert(message)
+      navigate('/')
+    }
 
   }
 
