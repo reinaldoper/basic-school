@@ -2,7 +2,9 @@ import { fetchNotas } from "../services/fetchApi";
 import { useState } from "react";
 import Stats from "../utils/Stats";
 import ButtonUpdate from "../buttons/ButtonUpdate";
-import { alertLogoutNotes, alert } from "../alerts/Alerts";
+import { alertLogoutNotes, alertVariables } from "../alerts/Alerts";
+import { useNavigate } from "react-router-dom";
+
 
 const Notas = () => {
   const [nome, setNome] = useState<string>('')
@@ -10,9 +12,18 @@ const Notas = () => {
   const [error, setError] = useState<boolean>(false)
   const [semestre, setSemestre] = useState<string>('')
 
+  const navigate = useNavigate()
+
   const { logar, listAluno, admin } = Stats();
 
-  const newNota = listAluno.filter(nota => nota.professor.nome === admin[0].nome)
+  const verify = listAluno.some(a => a.professor.nome);
+
+  if(!verify){
+    alert('No teacher found');
+    navigate('/');
+  }
+
+  const newNota = listAluno.filter(nota => nota.professor.nome === admin[0].nome);
 
 
   const handleClick = async () => {
@@ -58,7 +69,7 @@ const Notas = () => {
     <>
       {logar && newNota.length ? <div id='container-notes'>
         <div className="w3-container input-card">
-          {error && alert()}
+          {error && alertVariables()}
           <h2>Cadastrar nota:</h2>
 
           <div className="w3-card-4">

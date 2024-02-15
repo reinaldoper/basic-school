@@ -1,4 +1,4 @@
-export  const alert = () => {
+export  const alertVariables = () => {
   return (
     <div className="w3-panel w3-red">
       <h3>Danger!</h3>
@@ -38,7 +38,7 @@ export const alertLogoutNotes = () => {
   return (
     <div className="w3-panel w3-yellow">
       <h3>Warning!</h3>
-      <p>Nota já lançada.</p>
+      <p>Nenhum aluno cadastrado.</p>
     </div>
   )
 }

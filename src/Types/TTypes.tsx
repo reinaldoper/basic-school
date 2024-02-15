@@ -33,6 +33,7 @@ export interface StoreState {
   update: Aluno[];
   userLogar: boolean;
   dir: boolean;
+  studentLogar: boolean;
 }
 
 export interface StoreActions {
@@ -48,6 +49,8 @@ export interface StoreActions {
   setUserLogar: () => void;
   setDiretor: () => void;
   resetDiretor: () => void;
+  setStudent: () => void;
+  resetStudent: () => void;
 }
 
 export interface Aluno {

@@ -3,7 +3,7 @@ import { fetchAluno } from "../../services/fetchApi"
 import Stats from "../../utils/Stats";
 import ButtonUpdate from '../../buttons/ButtonUpdate';
 import InputForm from "../../inputs/InputForm";
-import { alert, alertLogout } from "../../alerts/Alerts";
+import { alertVariables, alertLogout } from "../../alerts/Alerts";
 
 const FormAlunos = () => {
 
@@ -77,7 +77,7 @@ const FormAlunos = () => {
   return (
     <>
       {logar && !dir ? <div className="w3-container input-card">
-        {error && alert()}
+        {error && alertVariables()}
         <h2>Cadastrar aluno:</h2>
 
         <div className="w3-card-4">

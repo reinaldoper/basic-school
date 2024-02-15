@@ -3,6 +3,8 @@ import { fetchNotas, fetchAluno } from "../../services/fetchApi";
 import { useState } from "react";
 import Stats from '../../utils/Stats';
 import ButtonUpdate from "../../buttons/ButtonUpdate";
+import { useNavigate } from 'react-router-dom';
+import { alertVariables } from '../../alerts/Alerts';
 
 
 const UpdateNotas = () => {
@@ -12,7 +14,16 @@ const UpdateNotas = () => {
   const [log, setLog] = useState<boolean>(false)
   const [id, setId] = useState<number>()
 
+  const navigate = useNavigate()
+
   const { listAlunos, logar, listAluno, admin } = Stats();
+
+  const verify = listAluno.some(a => a.notas?.length);
+
+  if(!verify) {
+    alert('No notes found')
+    navigate('/');
+  }
 
   const newNota = listAluno.filter(nota => nota.professor.nome === admin[0].nome)
 
@@ -72,16 +83,6 @@ const UpdateNotas = () => {
     }
   };
 
-
-  const alert = () => {
-    return (
-      <div className="w3-panel w3-red">
-        <h3>Danger!</h3>
-        <p>Campos inválidos ou algo deu errado na solicitação.</p>
-      </div>
-    )
-  }
-
   const verifyVariables = () => {
     if (nota < 5 || semestre.length === 0) {
       return false
@@ -104,7 +105,7 @@ const UpdateNotas = () => {
 
       {logar && newNota.length && log ? <div id='container-notes'>
         <div className="w3-container input-card">
-          {error && alert()}
+          {error && alertVariables()}
           <h2>Atualizar nota:</h2>
 
           <div className="w3-card-4">

@@ -13,7 +13,7 @@ const Login = () => {
 
   const { insertLogar, logout, teacherDiscipline,
     setAdmin, user, listAluno, userLogedIn,
-    resetLogar, setDiretor } = Stats();
+    resetLogar, setDiretor, setStudentLogar } = Stats();
 
   const navigate = useNavigate();
 
@@ -34,6 +34,7 @@ const Login = () => {
       navigate('/')
     } else if (listAluno[0]?.role === "USER" && listAluno[0].nome === name && listAluno[0].email === email) {
       setError(false);
+      setStudentLogar();
       user(listAluno);
       logout();
       resetLogar();
