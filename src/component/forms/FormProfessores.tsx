@@ -4,7 +4,7 @@ import { fetchProfessor } from '../../services/fetchApi';
 import Stats from '../../utils/Stats';
 import ButtonUpdate from '../../buttons/ButtonUpdate';
 import InputForm from '../../inputs/InputForm';
-import { alert, alertLogoutTeacher } from '../../alerts/Alerts';
+import { alertVariables, alertLogoutTeacher } from '../../alerts/Alerts';
 
 
 const FormProfessores = () => {
@@ -71,7 +71,7 @@ const FormProfessores = () => {
   return (
     <>
       {logar && dir ? <div className="w3-container input-card">
-        {error && alert()}
+        {error && alertVariables()}
         <h2>Cadastrar professor:</h2>
 
         <div className="w3-card-4">
