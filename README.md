@@ -1,5 +1,9 @@
 # Basic school
 
+## Um pequeno spoiler do projeto:
+
+[spoiler](./src/assets/gif.gif)
+
 ### Clonar o projeto:
 
 ```shell
