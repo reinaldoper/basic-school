@@ -35,14 +35,24 @@ const Home = () => {
           'Content-Type': 'application/json',
         }
       }
-      const result = await fetchDiretor(headers, null);
-      setDiretor(result.message);
-
-
-      const list = await fetchProfessor(headers, null);
-      teacher(list.message)
+      const { error, message } = await fetchDiretor(headers, null);
+      if (error) alert(error)
+      setDiretor(message);
     };
+
+    const response = async () => {
+      const headers: RequestInit = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
+      const { error, message } = await fetchProfessor(headers, null);
+      if (error) alert(error)
+      teacher(message)
+    }
     all();
+    response();
   }, [teacher]);
 
 
@@ -55,8 +65,9 @@ const Home = () => {
         }
       }
 
-      const listStudents = await fetchAluno(headers)
-      listAlunos(listStudents.message)
+      const { error, message } = await fetchAluno(headers)
+      if (error) alert(error)
+      listAlunos(message)
     };
     student();
 
