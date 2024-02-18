@@ -4,6 +4,7 @@ import Stats from "../utils/Stats";
 import ButtonForm from '../buttons/ButtonForm';
 import { alertLogin } from '../alerts/Alerts';
 import InputLogin from '../inputs/InputLogin';
+import { Aluno } from '../Types/TTypes';
 
 
 const Login = () => {
@@ -17,9 +18,11 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+
   const handleSubmit = () => {
 
     const ability = teacherDiscipline.filter(e => e.email === email)
+    const aluno: Aluno[] = listAluno.filter(i => i.email === email);
 
 
     if (ability[0]?.role === "ADMIN" && ability[0].nome === name && ability[0].email === email) {
@@ -32,10 +35,10 @@ const Login = () => {
       insertLogar();
       setDiretor();
       navigate('/')
-    } else if (listAluno[0]?.role === "USER" && listAluno[0].nome === name && listAluno[0].email === email) {
+    } else if (aluno[0].role === "USER" && aluno[0].nome === name && aluno[0].email === email) {
       setError(false);
       setStudentLogar();
-      user(listAluno);
+      user(aluno);
       logout();
       resetLogar();
       navigate('/')

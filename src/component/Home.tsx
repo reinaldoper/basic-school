@@ -25,7 +25,8 @@ const Home = () => {
     add,
     logarUser,
     userLogedIn,
-    studentLogar } = Stats();
+    studentLogar,
+    resetStudentLogar } = Stats();
 
   useEffect(() => {
     const all = async () => {
@@ -35,8 +36,7 @@ const Home = () => {
           'Content-Type': 'application/json',
         }
       }
-      const { error, message } = await fetchDiretor(headers, null);
-      if (error) alert(error)
+      const { message } = await fetchDiretor(headers, null);
       setDiretor(message);
     };
 
@@ -47,8 +47,7 @@ const Home = () => {
           'Content-Type': 'application/json',
         }
       }
-      const { error, message } = await fetchProfessor(headers, null);
-      if (error) alert(error)
+      const { message } = await fetchProfessor(headers, null);
       teacher(message)
     }
     all();
@@ -65,8 +64,8 @@ const Home = () => {
         }
       }
 
-      const { error, message } = await fetchAluno(headers)
-      if (error) alert(error)
+      const { message } = await fetchAluno(headers)
+
       listAlunos(message)
     };
     student();
@@ -83,6 +82,7 @@ const Home = () => {
   const handleLogar = () => {
     logout();
     setUserLogar();
+    resetStudentLogar();
     resetDiretor();
     setAdmin([]);
   };
@@ -114,7 +114,7 @@ const Home = () => {
               <li className="w3-large"><i className="fa fa-user"></i> {admin.length && logar ? admin[0].nome : logUser.length && !logar && !logarUser ? logUser[0].nome : userLogedIn.length && logar ? userLogedIn[0].nome : 'user-login'}</li>
             </div>
           </Navbar>}
-        {!logar &&
+        {!logar && !studentLogar &&
           <Navbar>
             <div className='w3-container w3-white'>
               <ButtonHome local={local} variable='/' name='Home' />
@@ -131,11 +131,14 @@ const Home = () => {
           </Navbar>}
         {studentLogar &&
           <Navbar>
-            <ButtonHome local={local} variable='/' name='Home' />
-            <Button local={local} variable='/manager' name='Diretor' />
-            <Button local={local} variable='/about' name='Sobre nós' />
-            <Button local={local} variable='/library' name='Livraria' />
-            <button type="button" className='w3-button' onClick={handleLogar}>Logout</button>
+            <div className='w3-container w3-white'>
+              <ButtonHome local={local} variable='/' name='Home' />
+              <Button local={local} variable='/manager' name='Diretor' />
+              <Button local={local} variable='/about' name='Sobre nós' />
+              <Button local={local} variable='/library' name='Livraria' />
+              <button type="button" className='w3-button' onClick={handleLogar}>Logout</button>
+              <li className="w3-large"><i className="fa fa-user"></i> {admin.length && logar ? admin[0].nome : logUser.length && !logar && !logarUser ? logUser[0].nome : userLogedIn.length && logar ? userLogedIn[0].nome : 'user-login'}</li>
+            </div>
           </Navbar>}
       </div>
 
