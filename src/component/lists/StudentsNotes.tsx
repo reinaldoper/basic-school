@@ -1,17 +1,18 @@
 import Stats from "../../utils/Stats"
 import { useState } from "react";
 import Pagination from 'react-js-pagination';
+import { useNavigate } from "react-router-dom"
 
 const StudentsNotes = () => {
-
-  const { listAluno } = Stats();
+  const navigate = useNavigate();
+  const { listAluno, logar } = Stats();
 
   const [activePage, setActivePage] = useState(1);
   const itemsPerPage = 4;
   const totalItemsCount = listAluno.length;
   const pageRangeDisplayed = 2;
 
-
+  if (!logar) navigate('/');
 
   const handlePageChange = (pageNumber: number) => {
     setActivePage(pageNumber);
