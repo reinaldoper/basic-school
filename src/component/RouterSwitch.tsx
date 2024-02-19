@@ -29,6 +29,9 @@ export const Switch = (name: string): string => {
     case "/teacher/del":
       return name
       break;
+    case "/student/notes":
+      return name
+      break;
 
     default:
       return 'Invalid route'

@@ -1,4 +1,4 @@
-import {  Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import App from '../pages/App'
 import Alunos from "../pages/Alunos";
 import Professores from "../pages/Professores";
@@ -9,7 +9,7 @@ import Notes from "../pages/Notes";
 import Library from "../pages/Library";
 import DeleteTeacher from "../pages/DeleteTeacher";
 import FormDelStudent from "../component/forms/FormDelStudent";
-
+import ListStudentsNotes from "../pages/ListStudentsNotes";
 
 const Router = () => {
   return (
@@ -25,6 +25,7 @@ const Router = () => {
         <Route path="/library" element={<Library />} />
         <Route path="/teacher/del" element={<DeleteTeacher />} />
         <Route path="/student/del/:id" element={<FormDelStudent />} />
+        <Route path="/student/notes" element={<ListStudentsNotes />} />
       </Routes>
     </>
   )

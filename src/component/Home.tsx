@@ -101,6 +101,7 @@ const Home = () => {
           <Navbar>
             <div className='w3-container w3-white'>
               <ButtonHome local={local} variable='/' name='Home' />
+              <Button local={local} variable='/student/notes' name='Notas-alunos' />
               <Button local={local} variable='/students' name='Listar alunos' />
               <Button local={local} variable='/teacher' name='Professores' />
               <Button local={local} variable='/manager' name='Diretor' />
@@ -133,6 +134,7 @@ const Home = () => {
           <Navbar>
             <div className='w3-container w3-white'>
               <ButtonHome local={local} variable='/' name='Home' />
+              <Button local={local} variable='/student/notes' name='Notas-alunos' />
               <Button local={local} variable='/manager' name='Diretor' />
               <Button local={local} variable='/about' name='Sobre nós' />
               <Button local={local} variable='/library' name='Livraria' />
