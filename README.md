@@ -116,4 +116,4 @@ Boas práticas de codificação,
 
 ReinaldoDeveloper
 
-Equipe de Desenvolvimento - School Basic
+Equipe de Desenvolvimento - Basic School
