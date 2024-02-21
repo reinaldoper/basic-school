@@ -10,7 +10,7 @@ export default {
   ],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup-tests.jsx'],
   moduleNameMapper: {
-    '\\.(gif|ttf|eot|svg|png|webp)$': '<rootDir>/.jest/mock/fileMock.jsx',
+    '\\.(gif|ttf|eot|svg|png|webp|jpg)$': '<rootDir>/.jest/mock/fileMock.jsx',
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
   },
 }
