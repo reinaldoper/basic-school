@@ -3,14 +3,15 @@ import school from '../assets/escola-2.webp'
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchDiretor, fetchProfessor, fetchAluno } from '../services/fetchApi';
-import { User } from '../Types/TTypes';
 import Button from '../buttons/Button';
 import ButtonHome from '../buttons/ButtonHome';
 import Navbar from './Navbar';
 import Stats from '../utils/Stats';
 
 const Home = () => {
-  const [diretor, setDiretor] = useState<User[]>([]);
+  const [diretor, setDiretor] = useState([]);
+  const [professor, setProfessor] = useState([]);
+  const [alunos, setAlunos] = useState([]);
 
   const { dir,
     resetDiretor,
@@ -48,11 +49,13 @@ const Home = () => {
         }
       }
       const { message } = await fetchProfessor(headers, null);
-      teacher(message)
+      setProfessor(message);
     }
     all();
     response();
   }, [teacher]);
+
+  teacher(professor);
 
 
   useEffect(() => {
@@ -65,14 +68,15 @@ const Home = () => {
       }
 
       const { message } = await fetchAluno(headers)
-
-      listAlunos(message)
+      setAlunos(message);
+      
     };
     student();
 
   }, [listAlunos])
 
   add(diretor);
+  listAlunos(alunos)
 
 
   const location = useLocation();

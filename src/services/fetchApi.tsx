@@ -1,3 +1,5 @@
+import fetch from 'cross-fetch';
+
 const URL_PROFESSOR = "https://escola-prisma.vercel.app/api/professor"
 const URL_ALUNO = "https://escola-prisma.vercel.app/api/aluno"
 const URL_DIRETOR = "https://escola-prisma.vercel.app/api/diretor"
