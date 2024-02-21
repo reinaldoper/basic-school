@@ -40,7 +40,7 @@ const StudentsNotes = () => {
 
   return (
     <div style={{maxWidth: "50%", margin: 'auto'}}>
-      {listNotesStudent}
+      {listNotesStudent ? listNotesStudent : <h1>Carregando...</h1>}
       {totalItemsCount > itemsPerPage ?
           <div className="pagination">
             <Pagination
