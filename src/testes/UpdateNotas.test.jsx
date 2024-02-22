@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import UpdateNotas from '../component/updates/UpdateNotas';
 
@@ -12,7 +12,7 @@ jest.mock('../utils/Stats', () => ({
   default: jest.fn(() => ({
     listAlunos: [],
     logar: jest.fn(),
-    admin: [nome, email, role],
+    admin: [{nome: nome, email: email, role: role}],
     listAluno: [
       {
         "id": 5,
@@ -54,14 +54,19 @@ jest.mock('../utils/Stats', () => ({
 }));
 
 describe('UpdateNotas', () => {
-  it('should return UpdateNotas component.', () => {
+  it('should return UpdateNotas component.', async () => {
     render(
       <MemoryRouter>
         <UpdateNotas />
       </MemoryRouter>
     );
     
-
-    screen.debug()
+    
+    await waitFor(() => {
+      const semestre = screen.getByText(/1°-semestre/)
+      const nota = screen.getByText(/9.99/);
+      expect(semestre).toBeInTheDocument();
+      expect(nota).toBeInTheDocument();
+    })
   });
 });

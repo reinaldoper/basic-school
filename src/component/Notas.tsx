@@ -20,7 +20,7 @@ const Notas = () => {
 
 
   const newNota = listAluno.filter(nota => nota.professor.nome === admin[0].nome);
-
+ 
 
   const handleClick = async () => {
 
