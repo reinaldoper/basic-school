@@ -3,8 +3,8 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Biblioteca from '../component/Biblioteca';
 
-describe('Should return a login form.', () => {
-  it('Login.', async () => {
+describe('Should return a book list.', () => {
+  it('Books.', async () => {
     render(
       <MemoryRouter>
         <Biblioteca />
