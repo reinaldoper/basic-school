@@ -29,8 +29,8 @@ jest.mock('../store/state', () => ({
 
 
 
-describe('Footer', () => {
-  it('should return footer component.', async () => {
+describe('Manager', () => {
+  it('should return Salles component.', async () => {
     render(
       <MemoryRouter>
         <Salles />
