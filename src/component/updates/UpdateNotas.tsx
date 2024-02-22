@@ -16,7 +16,8 @@ const UpdateNotas = () => {
 
   const navigate = useNavigate()
 
-  const { listAlunos, logar, listAluno, admin } = Stats();
+  const stats = Stats(); 
+  const { listAlunos, logar, listAluno, admin } = stats;
 
   const verify = listAluno.some(a => a.notas?.length);
 
@@ -39,7 +40,7 @@ const UpdateNotas = () => {
 
 
 
-  const updateAluno = newNota ? newNota[0].notas?.map(nota => (
+  const updateAluno = newNota.length ? newNota[0].notas?.map(nota => (
     <ol id="update-ol" className="w3-container w3-animate-top">
       <li>Semestre: {nota.semestre === null ? null : nota.semestre}</li>
       <li>Nota: {nota.valor}</li>

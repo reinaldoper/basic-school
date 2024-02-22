@@ -16,12 +16,8 @@ const Notas = () => {
 
   const { logar, listAluno, admin } = Stats();
 
-  const verify = listAluno.some(a => a.professor.nome);
+  if(!logar) navigate('/')
 
-  if(!verify){
-    alert('No teacher found');
-    navigate('/');
-  }
 
   const newNota = listAluno.filter(nota => nota.professor.nome === admin[0].nome);
 
