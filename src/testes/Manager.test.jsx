@@ -6,21 +6,14 @@ import { manager } from '../../.jest/mock/AboutText';
 
 
 
-const nome = 'Moreira Salles'
-const email = 'moreira@school.com'
-const role = 'DIR'
+const nome = 'Moreira Salles';
+const email = 'moreira@school.com';
+const role = 'DIR';
 
-const diretor = [
-  nome, email, role
-]
-
-
-
-jest.mock('../store/state', () => ({
-  diretor,
-  setAddUser: jest.fn(),
-  useStore: jest.fn(() => ({
-    diretor,
+jest.mock('../utils/Stats', () => ({
+  __esModule: true,
+  default: jest.fn(() => ({
+    userLogedIn: [{ nome: nome, email: email, role: role }]
   })),
 }));
 
@@ -36,13 +29,17 @@ describe('Manager', () => {
         <Salles />
       </MemoryRouter>
     );
-    const renderText = screen.getByText('Carregando...')
-    expect(renderText).toBeInTheDocument();
+
+    const renderMsg = screen.getByText(manager);
+    expect(renderMsg).toBeInTheDocument();
+
+    const renderDireitos = screen.getByText('Todos os direitos reservados a ©Copyright')
+    expect(renderDireitos).toBeInTheDocument();
 
 
     await waitFor(() => {
-      const renderMsg = screen.getByText(manager);
-      expect(renderMsg).toBeInTheDocument();
+      const renderText = screen.getByText('Moreira Salles')
+      expect(renderText).toBeInTheDocument();
     })
   });
 });
