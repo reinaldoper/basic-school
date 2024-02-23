@@ -11,7 +11,7 @@ const Login = () => {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [error, setError] = useState<boolean>(false);
-
+  
   const { insertLogar, logout, teacherDiscipline,
     setAdmin, user, listAluno, userLogedIn,
     resetLogar, setDiretor, setStudentLogar } = Stats();
@@ -22,7 +22,8 @@ const Login = () => {
   const handleSubmit = () => {
 
     const ability = teacherDiscipline.filter(e => e.email === email)
-    const aluno: Aluno[] = listAluno.filter(i => i.email === email);
+    const aluno: Aluno | undefined = listAluno.find(i => i.email === email);
+    
 
 
     if (ability[0]?.role === "ADMIN" && ability[0].nome === name && ability[0].email === email) {
@@ -35,10 +36,10 @@ const Login = () => {
       insertLogar();
       setDiretor();
       navigate('/')
-    } else if (aluno[0].role === "USER" && aluno[0].nome === name && aluno[0].email === email) {
+    } else if (aluno && aluno.role === "USER" && aluno.nome === name && aluno.email === email) {
       setError(false);
       setStudentLogar();
-      user(aluno);
+      user(aluno && [aluno]);
       logout();
       resetLogar();
       navigate('/')
