@@ -2,26 +2,14 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Login from '../component/Login';
-import Stats from "../utils/Stats";
 
-const { setAdmin, teacher, admin} = Stats();
 
 jest.mock('../store/state', () => ({
   useStore: jest.fn(),
 }));
 
 
-jest.mock(setAdmin, () => ({
-  setAdmin: jest.fn(),
-}));
 
-jest.mock(teacher, () => ({
-  teacher: jest.fn(),
-}));
-
-jest.mock(admin, () => ({
-  admin: jest.fn(),
-}));
 
 describe('Should return a login form.', () => {
   it('Login.', () => {
