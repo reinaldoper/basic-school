@@ -5,8 +5,10 @@ import AboutWe from '../component/AboutWe.tsx';
 import { text } from '../../.jest/mock/AboutText.jsx';
 
 
+
+
 describe('AboutWe', () => {
-  it('should return text and manager name.', () => {
+  it('should return text.', () => {
     render(
       <MemoryRouter>
         <AboutWe />
@@ -17,7 +19,18 @@ describe('AboutWe', () => {
 
     const textManager = screen.getByText(text);
     expect(textManager).toBeInTheDocument();
-   
-    
+
+
+  });
+  it('should return loading text.', () => {
+    render(
+      <MemoryRouter>
+        <AboutWe />
+      </MemoryRouter>
+    );
+    const renderText = screen.getByText('Carregando...')
+    expect(renderText).toBeInTheDocument();
+
+
   });
 });

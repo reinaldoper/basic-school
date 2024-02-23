@@ -6,6 +6,9 @@ const AboutWe = () => {
 
   const diretor = useStore((state) => state.user)
 
+  console.log(diretor);
+  
+
   return (
     <>
       <p className='w3-container w3-animate-top about-we'>
