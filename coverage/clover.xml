@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1708703284604" clover="3.2.0">
-  <project timestamp="1708703284605" name="All files">
-    <metrics statements="419" coveredstatements="233" conditionals="226" coveredconditionals="76" methods="148" coveredmethods="78" elements="793" coveredelements="387" complexity="0" loc="419" ncloc="419" packages="11" files="25" classes="25"/>
+<coverage generated="1708707936941" clover="3.2.0">
+  <project timestamp="1708707936942" name="All files">
+    <metrics statements="420" coveredstatements="234" conditionals="226" coveredconditionals="76" methods="148" coveredmethods="78" elements="794" coveredelements="388" complexity="0" loc="420" ncloc="420" packages="11" files="25" classes="25"/>
     <package name=".jest.mock">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="AboutText.jsx" path="/home/reinaldo/escola-prisma-front/escola-front/.jest/mock/AboutText.jsx">
@@ -65,12 +65,13 @@
       </file>
     </package>
     <package name="src.component">
-      <metrics statements="146" coveredstatements="80" conditionals="127" coveredconditionals="36" methods="33" coveredmethods="22"/>
+      <metrics statements="147" coveredstatements="81" conditionals="127" coveredconditionals="36" methods="33" coveredmethods="22"/>
       <file name="AboutWe.tsx" path="/home/reinaldo/escola-prisma-front/escola-front/src/component/AboutWe.tsx">
-        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
       </file>
       <file name="Biblioteca.tsx" path="/home/reinaldo/escola-prisma-front/escola-front/src/component/Biblioteca.tsx">
         <metrics statements="19" coveredstatements="17" conditionals="12" coveredconditionals="10" methods="4" coveredmethods="4"/>
@@ -420,7 +421,7 @@
       <file name="Sections.tsx" path="/home/reinaldo/escola-prisma-front/escola-front/src/sections/Sections.tsx">
         <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
         <line num="1" count="3" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
         <line num="25" count="3" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
         <line num="43" count="3" type="stmt"/>
