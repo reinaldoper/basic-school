@@ -2,6 +2,8 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Login from '../component/Login';
+import { createMemoryHistory } from 'history';
+
 
 const nome = 'Moreira Salles';
 const email = 'moreira@school.com';
@@ -11,6 +13,14 @@ const role = 'DIR';
 jest.mock('../utils/Stats', () => ({
   __esModule: true,
   default: jest.fn(() => ({
+    insertLogar: jest.fn(),
+    setDiretor: jest.fn(),
+    setAdmin: jest.fn(),
+    setError: jest.fn(),
+    setStudentLogar: jest.fn(),
+    user: jest.fn(),
+    logout: jest.fn(),
+    resetLogar: jest.fn(),
     userLogedIn: [{ nome: nome, email: email, role: role }],
     teacherDiscipline: [
       {
@@ -296,21 +306,22 @@ jest.mock('../utils/Stats', () => ({
 
 
 describe('Should return a login form.', () => {
-  it('Login.', () => {
+  it('Login DIR.', async () => {
+    const history = createMemoryHistory();
     render(
-      <MemoryRouter>
-        <Login />
+      <MemoryRouter history={history}>
+          <Login />
       </MemoryRouter>
     );
 
     const renderText = screen.getByText('Login')
     expect(renderText).toBeInTheDocument();
 
-    const inputElement = screen.getByPlaceholderText('Digite seu nome'); 
+    const inputElement = screen.getByPlaceholderText('Digite seu nome');
     fireEvent.change(inputElement, { target: { value: 'Moreira Salles' } });
     expect(inputElement.value).toBe('Moreira Salles');
 
-    const emailElement = screen.getByPlaceholderText('Digite seu email'); 
+    const emailElement = screen.getByPlaceholderText('Digite seu email');
     fireEvent.change(emailElement, { target: { value: 'moreira@school.com' } });
     expect(emailElement.value).toBe('moreira@school.com');
 
@@ -319,6 +330,78 @@ describe('Should return a login form.', () => {
     })
 
     expect(button).toBeInTheDocument()
+
+    fireEvent.click(button)
+
+    await waitFor(() => {
+      expect(history.location.pathname).toBe('/');
+    });
+
+  });
+
+  it('Login ADMIN.', async () => {
+    const history = createMemoryHistory();
+    render(
+      <MemoryRouter history={history}>
+          <Login />
+      </MemoryRouter>
+    );
+
+    const renderText = screen.getByText('Login')
+    expect(renderText).toBeInTheDocument();
+
+    const inputElement = screen.getByPlaceholderText('Digite seu nome');
+    fireEvent.change(inputElement, { target: { value: 'Reinaldo Pereira' } });
+    expect(inputElement.value).toBe('Reinaldo Pereira');
+
+    const emailElement = screen.getByPlaceholderText('Digite seu email');
+    fireEvent.change(emailElement, { target: { value: 'reinaldo@school.com' } });
+    expect(emailElement.value).toBe('reinaldo@school.com');
+
+    const button = screen.getByRole('button', {
+      name: /entrar/i
+    })
+
+    expect(button).toBeInTheDocument()
+
+    fireEvent.click(button)
+
+    await waitFor(() => {
+      expect(history.location.pathname).toBe('/');
+    });
+
+  });
+
+  it('Login USER.', async () => {
+    const history = createMemoryHistory();
+    render(
+      <MemoryRouter history={history}>
+          <Login />
+      </MemoryRouter>
+    );
+
+    const renderText = screen.getByText('Login')
+    expect(renderText).toBeInTheDocument();
+
+    const inputElement = screen.getByPlaceholderText('Digite seu nome');
+    fireEvent.change(inputElement, { target: { value: 'Giovanna' } });
+    expect(inputElement.value).toBe('Giovanna');
+
+    const emailElement = screen.getByPlaceholderText('Digite seu email');
+    fireEvent.change(emailElement, { target: { value: 'gi@email.com' } });
+    expect(emailElement.value).toBe('gi@email.com');
+
+    const button = screen.getByRole('button', {
+      name: /entrar/i
+    })
+
+    expect(button).toBeInTheDocument()
+
+    fireEvent.click(button)
+
+    await waitFor(() => {
+      expect(history.location.pathname).toBe('/');
+    });
 
   });
 
@@ -332,11 +415,11 @@ describe('Should return a login form.', () => {
     const renderText = screen.getByText('Login')
     expect(renderText).toBeInTheDocument();
 
-    const inputElement = screen.getByPlaceholderText('Digite seu nome'); 
+    const inputElement = screen.getByPlaceholderText('Digite seu nome');
     fireEvent.change(inputElement, { target: { value: 'Mary Silva' } });
     expect(inputElement.value).toBe('Mary Silva');
 
-    const emailElement = screen.getByPlaceholderText('Digite seu email'); 
+    const emailElement = screen.getByPlaceholderText('Digite seu email');
     fireEvent.change(emailElement, { target: { value: 'mory@school.com' } });
     expect(emailElement.value).toBe('mory@school.com');
 
