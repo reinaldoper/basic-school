@@ -46,7 +46,7 @@ const FormDelTeacher = () => {
     <>
       <div className="del-teacher">
         {error.length ? alert() : null}
-        {resultTeachers ? resultTeachers : <div>No registered teacher.</div>}
+        {resultTeachers ? resultTeachers : <h1>No registered teacher.</h1>}
       </div>
     </>
   )
