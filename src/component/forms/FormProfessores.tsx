@@ -81,11 +81,13 @@ const FormProfessores = () => {
 
           <form className="w3-container w3-green">
             <p>
+            <label>
               <InputForm name={nome} onChange={e => setNome(e.target.value)} />
-              <label>Nome</label></p>
+              Nome</label></p>
             <p>
+            <label>
               <InputForm name={email} onChange={e => setEmail(e.target.value)} />
-              <label>Email</label></p>
+              Email</label></p>
             <p>
               <select className="w3-input" value={disciplina} onChange={e => setDisciplina(e.target.value)}>
                 <option value="matematica">MATEMATICA</option>
