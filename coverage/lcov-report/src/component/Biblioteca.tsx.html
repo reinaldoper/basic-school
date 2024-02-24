@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">89.47% </span>
+                <span class="strong">73.68% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/19</span>
+                <span class='fraction'>14/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">58.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>10/12</span>
+                <span class='fraction'>7/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">89.47% </span>
+                <span class="strong">73.68% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>17/19</span>
+                <span class='fraction'>14/19</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -150,12 +150,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -169,21 +169,15 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -194,7 +188,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -247,19 +247,19 @@ const Biblioteca = () =&gt; {
 <span class="cstat-no" title="statement not covered" >      alert('Please enter your search term')</span>
     } else {
       const response = await fetchBooks(headers, search)
-      setBooks(response)
-      setSearch('')
+<span class="cstat-no" title="statement not covered" >      setBooks(response)</span>
+<span class="cstat-no" title="statement not covered" >      setSearch('')</span>
     }
 &nbsp;
   };
 &nbsp;
 &nbsp;
-  const booksResults = books.length &gt; 0 &amp;&amp; books.map((book, index) =&gt; (
-    &lt;div className="w3-card-4 book-card" key={index}&gt;
+  const booksResults = books.length &gt; 0 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >books.map(<span class="fstat-no" title="function not covered" >(b</span>ook, index) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >    &lt;div className="w3-card-4 book-card" key={index}&gt;</span>
       &lt;p&gt;{book.volumeInfo.publishedDate}&lt;/p&gt;
       &lt;p&gt;{book.accessInfo.accessViewStatus}&lt;/p&gt;
       &lt;img src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail :
-<span class="branch-1 cbranch-no" title="branch not covered" >        Livro</span>
+        Livro
       } alt="books" title={book.volumeInfo.title} /&gt;
       &lt;div className="w3-container w3-center"&gt;
         &lt;p&gt;{book.volumeInfo.title}&lt;/p&gt;
@@ -286,7 +286,7 @@ const Biblioteca = () =&gt; {
         &lt;/div&gt;
       &lt;/div&gt;
 &nbsp;
-      {end &amp;&amp; &lt;&gt;{start &amp;&amp; books.length ? &lt;&gt;
+      {end &amp;&amp; &lt;&gt;{start &amp;&amp; books.length ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;&gt;</span>
         &lt;hr /&gt;
         &lt;ul className="books"&gt;
           {booksResults}
@@ -304,7 +304,7 @@ export default Biblioteca
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-02-23T18:40:23.033Z
+                at 2024-02-24T07:46:22.184Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

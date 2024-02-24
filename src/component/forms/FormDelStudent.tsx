@@ -17,6 +17,7 @@ const FormDelStudent = () => {
   const navigate = useNavigate();
 
   const { id } = useParams();
+  
 
   useEffect(() => {
     const result = async () => {
@@ -27,6 +28,7 @@ const FormDelStudent = () => {
         }
       }
       const { error, message } = await fetchAlunoId(headers, Number(id))
+      
       if (error) alert(error)
       if (message) setStudent(message)
     }
