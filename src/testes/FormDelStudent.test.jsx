@@ -19,7 +19,6 @@ jest.mock('../utils/Stats', () => ({
 
 describe('DelStudent', () => {
   it('should return DelStudent component.', () => {
-    console.log('ID from test:', id);
     render(
       <MemoryRouter initialEntries={[`/student/del/${id}`]}>
         <Routes>
