@@ -14,6 +14,7 @@ const FormDelTeacher = () => {
   if (!dir) navigate('/');
 
   const handleClick = async (id: number) => {
+    
     const headers: RequestInit = {
       method: 'DELETE',
       headers: {
@@ -38,7 +39,7 @@ const FormDelTeacher = () => {
     <div id="teacher-del" className="w3-container w3-border w3-large" key={item.id}>
       <div className="w3-left-align"><p>{item.nome}</p></div>
       <div className="w3-right-align"><p>{item.disciplina}</p></div>
-      <button id="button-del-teacher" className="fa fa-trash" onClick={() => handleClick(item.id)} type="button"></button>
+      <button data-testid='button-del' id="button-del-teacher" className="fa fa-trash" onClick={() => handleClick(item.id)} type="button"></button>
     </div>
   )) : null;
 
