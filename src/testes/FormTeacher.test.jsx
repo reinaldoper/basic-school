@@ -38,9 +38,26 @@ describe('FormTeacher', () => {
       const button = screen.getByText(/Salvar/);
       expect(button).toBeInTheDocument()
       fireEvent.click(button);
-      
+
       expect(inputNome.value).toBe('');
       expect(inputEmail.value).toBe('');
+    })
+  });
+
+  it('should return Error FormTeacher component.', async () => {
+    render(
+      <MemoryRouter>
+        <FormTeacher />
+      </MemoryRouter>
+    );
+
+    const button = screen.getByText(/Salvar/);
+    expect(button).toBeInTheDocument()
+    fireEvent.click(button);
+
+    await waitFor(() => {
+      const mesError = screen.getByText(/Campos inválidos ou algo deu errado na solicitação./);
+      expect(mesError).toBeInTheDocument();
     })
   });
 });
