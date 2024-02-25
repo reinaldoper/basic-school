@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1708799711610" clover="3.2.0">
-  <project timestamp="1708799711610" name="All files">
+<coverage generated="1708878459071" clover="3.2.0">
+  <project timestamp="1708878459071" name="All files">
     <metrics statements="533" coveredstatements="348" conditionals="286" coveredconditionals="131" methods="176" coveredmethods="108" elements="995" coveredelements="587" complexity="0" loc="533" ncloc="533" packages="12" files="30" classes="30"/>
     <package name=".jest.mock">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

@@ -119,6 +119,7 @@ h1 {
 .w3-button:hover{
   border-top: 1px solid #343434;
   border-bottom: 1px solid #343434;
+  border-radius: 25px 25px 25px 25px;
 }
 
 .w3-large{
