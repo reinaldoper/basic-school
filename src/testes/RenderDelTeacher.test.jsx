@@ -8,6 +8,9 @@ jest.mock('../utils/Stats', () => ({
   __esModule: true,
   default: jest.fn(() => ({
     dir: true,
+    alert: jest.fn(),
+    setError: jest.fn(),
+    error: jest.fn(),
     teacherDiscipline: [
       {
         "id": 2,
@@ -139,8 +142,8 @@ describe('FormDelTeacher', () => {
     expect(teacher2).toBeInTheDocument()
 
     const button = screen.getAllByTestId('button-del')
-    expect(button[0]).toBeInTheDocument()
+    expect(button[1]).toBeInTheDocument()
 
-    button[0].click()
+    button[1].click()
   });
 });

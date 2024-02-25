@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1708878459071" clover="3.2.0">
-  <project timestamp="1708878459071" name="All files">
+<coverage generated="1708901283597" clover="3.2.0">
+  <project timestamp="1708901283597" name="All files">
     <metrics statements="533" coveredstatements="348" conditionals="286" coveredconditionals="131" methods="176" coveredmethods="108" elements="995" coveredelements="587" complexity="0" loc="533" ncloc="533" packages="12" files="30" classes="30"/>
     <package name=".jest.mock">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -18,7 +18,7 @@
       <file name="Alerts.tsx" path="/home/reinaldo/escola-prisma-front/escola-front/src/alerts/Alerts.tsx">
         <metrics statements="10" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
         <line num="1" count="5" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
         <line num="10" count="5" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
         <line num="19" count="5" type="stmt"/>
@@ -61,7 +61,7 @@
       <file name="ButtonUpdate.tsx" path="/home/reinaldo/escola-prisma-front/escola-front/src/buttons/ButtonUpdate.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="5" type="stmt"/>
-        <line num="4" count="9" type="stmt"/>
+        <line num="4" count="11" type="stmt"/>
       </file>
     </package>
     <package name="src.component">
@@ -315,53 +315,53 @@
       </file>
       <file name="FormDelTeacher.tsx" path="/home/reinaldo/escola-prisma-front/escola-front/src/component/forms/FormDelTeacher.tsx">
         <metrics statements="16" coveredstatements="13" conditionals="14" coveredconditionals="9" methods="5" coveredmethods="4"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="14" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="16" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="14" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="4" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="29" count="3" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
-        <line num="38" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="38" count="4" type="cond" truecount="4" falsecount="0"/>
         <line num="39" count="4" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
-        <line num="46" count="3" type="stmt"/>
+        <line num="46" count="4" type="stmt"/>
       </file>
       <file name="FormProfessores.tsx" path="/home/reinaldo/escola-prisma-front/escola-front/src/component/forms/FormProfessores.tsx">
         <metrics statements="31" coveredstatements="22" conditionals="13" coveredconditionals="10" methods="8" coveredmethods="6"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="11" count="4" type="stmt"/>
-        <line num="12" count="4" type="stmt"/>
-        <line num="13" count="4" type="stmt"/>
-        <line num="14" count="4" type="stmt"/>
-        <line num="16" count="4" type="stmt"/>
-        <line num="18" count="4" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="31" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="18" count="6" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="31" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="44" count="4" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="44" count="6" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
         <line num="51" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
-        <line num="56" count="4" type="stmt"/>
-        <line num="57" count="1" type="cond" truecount="4" falsecount="1"/>
-        <line num="58" count="1" type="stmt"/>
+        <line num="56" count="6" type="stmt"/>
+        <line num="57" count="2" type="cond" truecount="4" falsecount="1"/>
+        <line num="58" count="2" type="stmt"/>
         <line num="60" count="0" type="stmt"/>
-        <line num="65" count="4" type="stmt"/>
-        <line num="66" count="1" type="stmt"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="68" count="1" type="stmt"/>
-        <line num="71" count="4" type="stmt"/>
+        <line num="65" count="6" type="stmt"/>
+        <line num="66" count="2" type="stmt"/>
+        <line num="67" count="2" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="71" count="6" type="stmt"/>
         <line num="85" count="1" type="stmt"/>
         <line num="89" count="1" type="stmt"/>
         <line num="92" count="0" type="stmt"/>
@@ -539,7 +539,7 @@
       <file name="InputForm.tsx" path="/home/reinaldo/escola-prisma-front/escola-front/src/inputs/InputForm.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="4" count="14" type="stmt"/>
+        <line num="4" count="18" type="stmt"/>
       </file>
       <file name="InputLogin.tsx" path="/home/reinaldo/escola-prisma-front/escola-front/src/inputs/InputLogin.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -567,12 +567,12 @@
       <metrics statements="41" coveredstatements="21" conditionals="6" coveredconditionals="3" methods="6" coveredmethods="5"/>
       <file name="fetchApi.tsx" path="/home/reinaldo/escola-prisma-front/escola-front/src/services/fetchApi.tsx">
         <metrics statements="41" coveredstatements="21" conditionals="6" coveredconditionals="3" methods="6" coveredmethods="5"/>
-        <line num="3" count="10" type="stmt"/>
-        <line num="4" count="10" type="stmt"/>
-        <line num="5" count="10" type="stmt"/>
-        <line num="6" count="10" type="stmt"/>
-        <line num="7" count="10" type="stmt"/>
-        <line num="10" count="10" type="stmt"/>
+        <line num="3" count="11" type="stmt"/>
+        <line num="4" count="11" type="stmt"/>
+        <line num="5" count="11" type="stmt"/>
+        <line num="6" count="11" type="stmt"/>
+        <line num="7" count="11" type="stmt"/>
+        <line num="10" count="11" type="stmt"/>
         <line num="11" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
@@ -580,7 +580,7 @@
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
-        <line num="22" count="10" type="stmt"/>
+        <line num="22" count="11" type="stmt"/>
         <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="24" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
@@ -588,15 +588,15 @@
         <line num="28" count="1" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
-        <line num="34" count="10" type="stmt"/>
+        <line num="34" count="11" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="40" count="10" type="stmt"/>
+        <line num="40" count="11" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
-        <line num="46" count="10" type="stmt"/>
+        <line num="46" count="11" type="stmt"/>
         <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="48" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
@@ -604,7 +604,7 @@
         <line num="52" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
-        <line num="59" count="10" type="stmt"/>
+        <line num="59" count="11" type="stmt"/>
         <line num="60" count="1" type="stmt"/>
         <line num="61" count="1" type="stmt"/>
         <line num="62" count="1" type="stmt"/>
