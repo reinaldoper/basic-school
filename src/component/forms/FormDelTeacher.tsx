@@ -14,7 +14,7 @@ const FormDelTeacher = () => {
   if (!dir) navigate('/');
 
   const handleClick = async (id: number) => {
-    
+
     const headers: RequestInit = {
       method: 'DELETE',
       headers: {
@@ -22,8 +22,11 @@ const FormDelTeacher = () => {
       }
     }
     const { error, message } = await fetchProfessor(headers, id)
-    if(message) navigate('/');
-    if(error) setError(error);
+    if (message) {
+      navigate('/');
+    } else {
+      setError(error)
+    }
   };
 
   const alert = () => {
@@ -47,7 +50,7 @@ const FormDelTeacher = () => {
     <>
       <div className="del-teacher">
         {error.length ? alert() : null}
-        {resultTeachers ? resultTeachers : <h1 style={{margin: 'auto'}}>No registered teacher.</h1>}
+        {resultTeachers ? resultTeachers : <h1 style={{ margin: 'auto' }}>No registered teacher.</h1>}
       </div>
     </>
   )

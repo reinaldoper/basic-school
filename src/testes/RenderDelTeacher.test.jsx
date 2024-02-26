@@ -1,5 +1,6 @@
+import { act } from 'react-dom/test-utils'; 
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import FormDelTeacher from '../component/forms/FormDelTeacher'
 
@@ -10,7 +11,7 @@ jest.mock('../utils/Stats', () => ({
     dir: true,
     alert: jest.fn(),
     setError: jest.fn(),
-    error: jest.fn(),
+    fetchProfessor: jest.fn(),
     teacherDiscipline: [
       {
         "id": 2,
@@ -129,21 +130,30 @@ jest.mock('../utils/Stats', () => ({
 }));
 
 describe('FormDelTeacher', () => {
-  it('should return FormDelTeacher component.', () => {
+  it('should return FormDelTeacher component.', async () => {
     render(
       <MemoryRouter>
         <FormDelTeacher />
       </MemoryRouter>
     );
-    const teacher1 = screen.getByText(/Joao Castelo Branco/);
+    const teacher1 = screen.getByText(/Marcela das Neves/);
     expect(teacher1).toBeInTheDocument()
 
     const teacher2 = screen.getByText(/Josefina Costantina/)
     expect(teacher2).toBeInTheDocument()
 
     const button = screen.getAllByTestId('button-del')
-    expect(button[1]).toBeInTheDocument()
+    expect(button[0]).toBeInTheDocument()
 
-    button[1].click()
+    act(() => {
+      button[0].click();
+    });
+
+    await waitFor(() => {
+      const msgError = screen.getByText(/Teacher with students associated./);
+      expect(msgError).toBeInTheDocument()
+      const nsg = screen.getByText(/Warning!/)
+      expect(nsg).toBeInTheDocument()
+    }, { timeout: 3000 })
   });
 });
